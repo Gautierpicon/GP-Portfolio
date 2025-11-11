@@ -15,32 +15,36 @@ import Duck from '../assets/duck.webp';
       />
     </div>
 
-    <div class="relative w-full max-w-2xl bg-[#f7f7f7] rounded-3xl p-6 shadow-sm">
+    <div class="w-full max-w-2xl bg-[#f7f7f7] rounded-3xl shadow-sm flex flex-col">
       <textarea
         id="messageInput"
         placeholder="Send a message"
-        class="w-full h-10 bg-transparent resize-none outline-none border-none text-dark placeholder-gray-400"
+        rows="1"
+        class="w-full min-h-12 bg-transparent resize-none outline-none border-none text-dark placeholder-gray-400 overflow-y-auto px-6 pt-6"
+        style="max-height: 12rem;"
       ></textarea>
 
-      <button
-        id="sendButton"
-        type="button"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="2.7"
-          stroke="white"
-          class="w-4 h-4"
+      <div class="flex justify-end px-2 py-2">
+        <button
+          id="sendButton"
+          type="button"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18"
-          />
-        </svg>
-      </button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2.7"
+            stroke="white"
+            class="w-4 h-4"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 
@@ -50,12 +54,22 @@ import Duck from '../assets/duck.webp';
 
     const updateButtonStyle = () => {
       if (textarea.value.trim() === '') {
-        button.className = 'cursor-not-allowed absolute bottom-2 right-2 w-9 h-9 rounded-full flex items-center justify-center bg-gray-200';
+        button.className = 'cursor-not-allowed w-9 h-9 rounded-full flex items-center justify-center bg-gray-200';
       } else {
-        button.className = 'cursor-pointer absolute bottom-2 right-2 w-9 h-9 rounded-full flex items-center justify-center bg-black';
+        button.className = 'cursor-pointer w-9 h-9 rounded-full flex items-center justify-center bg-black';
       }
     };
+
+    const autoResize = () => {
+      textarea.style.height = 'auto';
+      textarea.style.height = textarea.scrollHeight + 'px';
+    };
+
     updateButtonStyle();
-    textarea.addEventListener('input', updateButtonStyle);
+    textarea.addEventListener('input', () => {
+      updateButtonStyle();
+      autoResize();
+    });
+    autoResize();
   </script>
 </Layout>
