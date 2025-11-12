@@ -4,6 +4,7 @@
   "workspaces": {
     "": {
       "dependencies": {
+        "": ".",
         "@astrojs/svelte": "^7.2.2",
         "@tailwindcss/vite": "^4.1.17",
         "astro": "^5.15.5",
@@ -14,6 +15,8 @@
     },
   },
   "packages": {
+    "": ["@root:", {}],
+
     "@astrojs/compiler": ["@astrojs/compiler@2.13.0", "", {}, "sha512-mqVORhUJViA28fwHYaWmsXSzLO9osbdZ5ImUfxBarqsYdMlPbqAqGJCxsNzvppp1BEzc1mJNjOVvQqeDN8Vspw=="],
 
     "@astrojs/internal-helpers": ["@astrojs/internal-helpers@0.7.4", "", {}, "sha512-lDA9MqE8WGi7T/t2BMi+EAXhs4Vcvr94Gqx3q15cFEz8oFZMO4/SFBqYr/UcmNlvW+35alowkVj+w9VhLvs5Cw=="],
