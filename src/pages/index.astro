@@ -8,13 +8,17 @@ const pageTitle = "Gautier Picon's Portfolio";
 
 <Layout pageTitle={pageTitle}>
   <div class="min-h-screen flex flex-col items-center justify-center gap-10">
-    <div class="w-25 h-25 flex items-center justify-center overflow-hidden">
+    <div class="w-25 h-25 flex items-center justify-center overflow-hidden cursor-pointer" id="duckImage">
       <Image
         src={duck}
         alt="Duck illustration"
         class="object-contain w-full h-full"
       />
     </div>
+
+    <audio id="quackSound" preload="auto">
+      <source src="/quack.mp3" type="audio/mpeg">
+    </audio>
 
     <div class="w-full max-w-2xl bg-[#f7f7f7] rounded-3xl shadow-sm flex flex-col">
       <textarea
@@ -61,6 +65,13 @@ const pageTitle = "Gautier Picon's Portfolio";
   <script is:inline>
     const textarea = document.getElementById('messageInput');
     const button = document.getElementById('sendButton');
+    const duckImage = document.getElementById('duckImage');
+    const quackSound = document.getElementById('quackSound');
+
+    duckImage.addEventListener('click', () => {
+      quackSound.currentTime = 0;
+      quackSound.play();
+    });
 
     const updateButtonStyle = () => {
       if (textarea.value.trim() === '') {
