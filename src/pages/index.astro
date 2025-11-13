@@ -2,14 +2,14 @@
 import "../global.css";
 import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
-import Duck from '../assets/duck.webp';
+import duck from '../assets/duck.webp';
 ---
 
 <Layout>
   <div class="min-h-screen flex flex-col items-center justify-center gap-10">
     <div class="w-25 h-25 flex items-center justify-center overflow-hidden">
       <Image
-        src={Duck}
+        src={duck}
         alt="Duck illustration"
         class="object-contain w-full h-full"
       />
