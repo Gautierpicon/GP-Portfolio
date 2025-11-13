@@ -7,43 +7,48 @@ const pageTitle = "GP's Portfolio >> HIW";
 ---
 
 <Layout pageTitle={pageTitle}>
-  <style is:global>
-    .custom-small-img {
-      max-width: 250px;
-      height: auto;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  </style>
-
-    <div style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        maxWidth: "800px",
-        margin: "0 auto",
-        padding: "20px",
-        textAlign: "center"
-    }}>
-        <h1>How It Works</h1>
-        <Image src={duckhiw} alt="Duck" class="custom-small-img" />
-        <main class="prose prose-lg text-gray-800 flex flex-col items-center">
-            <h2>This AI respects the planet and your privacy</h2>
-            <p>
-                Ecology and respect for user data are two things that are very important to me. This site will not betray my values!
-            </p>
-            <h3>Ecology:</h3>
-            <p>
-                The AI runs on a <a href="https://www.raspberrypi.com/">Raspberry Pi</a> that I host myself. Sure, it's less powerful than a real server, but it's more than enough for my needs, and it doesn't require water cooling, a ton of electricity, or anything else (and it's more fun to do everything yourself rather than just making an <a href="https://en.wikipedia.org/wiki/API">API</a> request to ChatGPT).
-            </p>
-            <h3>Privacy:</h3>
-            <p>
-                As mentioned previously, I host the <a href="https://www.raspberrypi.com/">Raspberry Pi</a> running the AI myself. Therefore, nothing goes through a third party. I do not keep any conversations that my users have with the AI. Once the page is deleted, everything disappears!
-            </p>
-            <p>
-                You don't have to take my word for it, which is why all the code is public on my <a href="https://github.com/Gautierpicon/Portfolio">GitHub</a> so that anyone can verify it.
-            </p>
-        </main>
-    </div>
+  <div class="flex flex-col items-center max-w-3xl mx-auto px-5 py-5 text-center">
+    <h1 class="text-4xl font-bold mb-6">How It Works</h1>
+    
+    <Image 
+      src={duckhiw} 
+      alt="Duck" 
+      class="max-w-[250px] h-auto block mx-auto mb-8" 
+    />
+    
+    <main class="prose prose-lg text-gray-800 flex flex-col items-center">
+      <h2 class="text-3xl font-semibold mb-4">
+        This AI respects the planet and your privacy
+      </h2>
+      
+      <p class="mb-6">
+        Ecology and respect for user data are two things that are very important to me. 
+        This site will not betray my values!
+      </p>
+      
+      <h3 class="text-2xl font-semibold mb-3">Ecology:</h3>
+      
+      <p class="mb-6">
+        The AI runs on a <a href="https://www.raspberrypi.com/" class="text-blue-600 hover:text-blue-800 underline">Raspberry Pi</a> that I host myself. 
+        Sure, it's less powerful than a real server, but it's more than enough for my needs, 
+        and it doesn't require water cooling, a ton of electricity, or anything else 
+        (and it's more fun to do everything yourself rather than just making an 
+        <a href="https://en.wikipedia.org/wiki/API" class="text-blue-600 hover:text-blue-800 underline">API</a> request to ChatGPT).
+      </p>
+      
+      <h3 class="text-2xl font-semibold mb-3">Privacy:</h3>
+      
+      <p class="mb-6">
+        As mentioned previously, I host the 
+        <a href="https://www.raspberrypi.com/" class="text-blue-600 hover:text-blue-800 underline">Raspberry Pi</a> running the AI myself. 
+        Therefore, nothing goes through a third party. I do not keep any conversations that 
+        my users have with the AI. Once the page is deleted, everything disappears!
+      </p>
+      
+      <p class="mb-6">
+        You don't have to take my word for it, which is why all the code is public on my 
+        <a href="https://github.com/Gautierpicon/Portfolio" class="text-blue-600 hover:text-blue-800 underline">GitHub</a> so that anyone can verify it.
+      </p>
+    </main>
+  </div>
 </Layout>
