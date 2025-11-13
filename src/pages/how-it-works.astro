@@ -2,9 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import duck from '../assets/duck.webp';
+
+const pageTitle = "GP's Portfolio >> HIW";
 ---
 
-<Layout>
+<Layout pageTitle={pageTitle}>
   <style is:global>
     .custom-small-img {
       max-width: 200px;
