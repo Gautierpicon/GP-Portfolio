@@ -122,7 +122,6 @@ const pageTitle = "Gautier Picon's Portfolio";
         const data = await response.json();
         
         if (data.response) {
-          // Affiche la réponse
           responseText.textContent = data.response;
           responseArea.classList.remove('hidden');
         } else if (data.error) {
