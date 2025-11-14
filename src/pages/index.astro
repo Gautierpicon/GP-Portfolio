@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
+import ChatInput from '../components/ChatInput.svelte';
 import duck from '../assets/duck.webp';
 
 const pageTitle = "Gautier Picon's Portfolio";
@@ -8,142 +9,32 @@ const pageTitle = "Gautier Picon's Portfolio";
 
 <Layout pageTitle={pageTitle}>
   <div class="min-h-screen flex flex-col items-center justify-center gap-10">
+
     <div class="w-25 h-25 flex items-center justify-center overflow-hidden cursor-pointer" id="duckImage">
-      <Image
-        src={duck}
-        alt="Duck illustration"
-        class="object-contain w-full h-full"
-      />
+      <Image src={duck} alt="Duck illustration" class="object-contain w-full h-full" />
     </div>
 
     <audio id="quackSound" preload="auto">
       <source src="/quack.mp3" type="audio/mpeg">
     </audio>
 
-    <div class="w-full max-w-2xl bg-[#f7f7f7] rounded-3xl shadow-sm flex flex-col">
-      <textarea
-        id="messageInput"
-        placeholder="Send a message"
-        rows="1"
-        class="w-full min-h-12 bg-transparent resize-none outline-none border-none text-dark placeholder-gray-400 overflow-y-auto px-6 pt-6"
-        style="max-height: 12rem;"
-      ></textarea>
-
-      <div class="flex justify-end px-2 py-2">
-        <button
-          id="sendButton"
-          type="button"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="2.7"
-            stroke="white"
-            class="w-4 h-4"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18"
-            />
-          </svg>
-        </button>
-      </div>
-    </div>
+    <ChatInput client:load/>
 
     <div class="-mt-9 text-sm text-gray-500 flex items-center">
       <p>This AI respects the planet and your privacy:</p>
-      <a 
-        href="/how-it-works" 
-        class="underline ml-1">
-          find out more
+      <a href="/how-it-works" class="underline ml-1">
+        find out more
       </a>
-    </div>
-
-    <div id="responseArea" class="hidden w-full max-w-2xl bg-white rounded-3xl shadow-sm p-6 mt-5">
-      <h3 class="font-bold text-lg mb-3">Response:</h3>
-      <p id="responseText" class="text-gray-800"></p>
     </div>
   </div>
 
   <script is:inline>
-    const textarea = document.getElementById('messageInput');
-    const button = document.getElementById('sendButton');
     const duckImage = document.getElementById('duckImage');
     const quackSound = document.getElementById('quackSound');
-    const responseArea = document.getElementById('responseArea');
-    const responseText = document.getElementById('responseText');
 
     duckImage.addEventListener('click', () => {
       quackSound.currentTime = 0;
       quackSound.play();
-    });
-
-    const updateButtonStyle = () => {
-      if (textarea.value.trim() === '') {
-        button.className = 'cursor-not-allowed w-9 h-9 rounded-full flex items-center justify-center bg-gray-200';
-      } else {
-        button.className = 'cursor-pointer w-9 h-9 rounded-full flex items-center justify-center bg-black';
-      }
-    };
-
-    const autoResize = () => {
-      textarea.style.height = 'auto';
-      textarea.style.height = textarea.scrollHeight + 'px';
-    };
-
-    updateButtonStyle();
-    textarea.addEventListener('input', () => {
-      updateButtonStyle();
-      autoResize();
-    });
-    autoResize();
-
-    const sendMessage = async () => {
-      const message = textarea.value.trim();
-      if (message === '') return;
-
-      button.disabled = true;
-      button.className = 'cursor-wait w-9 h-9 rounded-full flex items-center justify-center bg-gray-400';
-      
-      responseArea.classList.add('hidden');
-
-      try {
-        const response = await fetch('/api/chat', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ message })
-        });
-
-        const data = await response.json();
-        
-        if (data.response) {
-          responseText.textContent = data.response;
-          responseArea.classList.remove('hidden');
-        } else if (data.error) {
-          alert('Error: ' + data.error);
-        }
-      } catch (error) {
-        console.error('Error:', error);
-        alert('Failed to send message. Make sure Ollama is running!');
-      } finally {
-        button.disabled = false;
-        textarea.value = '';
-        updateButtonStyle();
-        autoResize();
-      }
-    };
-
-    button.addEventListener('click', sendMessage);
-
-    textarea.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' && !e.shiftKey) {
-        e.preventDefault();
-        sendMessage();
-      }
     });
   </script>
 </Layout>
