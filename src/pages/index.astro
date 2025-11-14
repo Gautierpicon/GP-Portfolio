@@ -60,6 +60,12 @@ const pageTitle = "Gautier Picon's Portfolio";
           find out more
       </a>
     </div>
+
+    <!-- Zone d'affichage de la réponse -->
+    <div id="responseArea" class="hidden w-full max-w-2xl bg-white rounded-3xl shadow-sm p-6 mt-5">
+      <h3 class="font-bold text-lg mb-3">Response:</h3>
+      <p id="responseText" class="text-gray-800"></p>
+    </div>
   </div>
 
   <script is:inline>
@@ -67,6 +73,8 @@ const pageTitle = "Gautier Picon's Portfolio";
     const button = document.getElementById('sendButton');
     const duckImage = document.getElementById('duckImage');
     const quackSound = document.getElementById('quackSound');
+    const responseArea = document.getElementById('responseArea');
+    const responseText = document.getElementById('responseText');
 
     duckImage.addEventListener('click', () => {
       quackSound.currentTime = 0;
@@ -92,5 +100,52 @@ const pageTitle = "Gautier Picon's Portfolio";
       autoResize();
     });
     autoResize();
+
+    const sendMessage = async () => {
+      const message = textarea.value.trim();
+      if (message === '') return;
+
+      button.disabled = true;
+      button.className = 'cursor-wait w-9 h-9 rounded-full flex items-center justify-center bg-gray-400';
+      
+      responseArea.classList.add('hidden');
+
+      try {
+        const response = await fetch('/api/chat', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ message })
+        });
+
+        const data = await response.json();
+        
+        if (data.response) {
+          // Affiche la réponse
+          responseText.textContent = data.response;
+          responseArea.classList.remove('hidden');
+        } else if (data.error) {
+          alert('Error: ' + data.error);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Failed to send message. Make sure Ollama is running!');
+      } finally {
+        button.disabled = false;
+        textarea.value = '';
+        updateButtonStyle();
+        autoResize();
+      }
+    };
+
+    button.addEventListener('click', sendMessage);
+
+    textarea.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
   </script>
 </Layout>
