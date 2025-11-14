@@ -15,7 +15,9 @@ const currentPath = Astro.url.pathname;
             alt="Duck404" 
             class="max-w-[200px] h-auto block mx-auto" 
         />
-        <div class="text-4xl pt-5">404: Not found</div>
+        <div class="text-4xl pt-5">
+            <span class="font-bold">404:</span> Not found
+        </div>
         <pre class="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-sm font-mono text-gray-200">Path: {currentPath}</pre>
     </div>
 </Layout>
