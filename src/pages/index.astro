@@ -11,7 +11,12 @@ const pageTitle = "Gautier Picon's Portfolio";
   <div class="min-h-screen flex flex-col items-center justify-center gap-10">
 
     <div class="w-25 h-25 flex items-center justify-center overflow-hidden cursor-pointer" id="duckImage">
-      <Image src={duck} alt="Duck illustration" class="object-contain w-full h-full" />
+      <Image 
+        src={duck} 
+        alt="Duck illustration" 
+        class="object-contain w-full h-full" 
+        loading="eager"
+      />
     </div>
 
     <audio id="quackSound" preload="auto">
