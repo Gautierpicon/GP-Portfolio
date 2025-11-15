@@ -1,6 +1,8 @@
 <script>
   import { onMount } from "svelte";
 
+  const BACKEND_URL = import.meta.env.PUBLIC_BACKEND_URL;
+
   let message = "";
   let response = "";
   let isLoading = false;
@@ -23,21 +25,25 @@
     response = "";
 
     try {
-      const res = await fetch("/api/chat", {
+      const res = await fetch(`${BACKEND_URL}/api/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: trimmed })
       });
 
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+
       const data = await res.json();
       if (data.response) {
         response = data.response;
-      } else if (data.error) {
-        alert("Error: " + data.error);
+      } else {
+        alert("No response received from the server");
       }
     } catch (e) {
       console.error(e);
-      alert("Failed to send message. Make sure Ollama is running!");
+      alert("Failed to send message. Make sure the backend is running at " + BACKEND_URL);
     } finally {
       message = "";
       isLoading = false;
@@ -97,6 +103,6 @@
 {#if response}
     <div class="w-full max-w-2xl bg-white rounded-3xl shadow-sm p-6 mt-5">
         <h3 class="font-bold text-lg mb-3">Response:</h3>
-        <p class="text-gray-800">{response}</p>
+        <p class="text-gray-800 whitespace-pre-wrap">{response}</p>
     </div>
 {/if}

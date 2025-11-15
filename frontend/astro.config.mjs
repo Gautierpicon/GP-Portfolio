@@ -11,5 +11,5 @@ export default defineConfig({
 
   integrations: [svelte()],
 
-  output: 'server',
+  output: 'static',
 });
