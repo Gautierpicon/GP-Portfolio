@@ -27,7 +27,7 @@ Feedback are welcome! Feel free to open an [issue](https://github.com/Gautierpic
 
 **Client:** Bun, Astro, Svelte, TailwindCSS
 
-**Server:** FastAPI with Python
+**Server:** FastAPI (Python)
 
 **Hosting:** backend: selfhost // Frontend: Vercel
 
