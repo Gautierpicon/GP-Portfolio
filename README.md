@@ -34,12 +34,12 @@ Go see his work: [Illustrator]()
 │  Serveur             │ ← Backend that I host
 │                      │
 │  ┌────────────────┐  │
-│  │ FastAPI      <-------- The API
+│  │ FastAPI      ◀──────── The API
 │  │                │  │
 │  └────────┬───────┘  │
 │           ▼          │
 │  ┌────────────────┐  │
-│  │ Ollama       <-------- IA locale
+│  │ Ollama       ◀──────── IA locale
 │  │                │  │
 │  └────────────────┘  │
 └──────────────────────┘
@@ -92,7 +92,7 @@ Portfolio/
 
 **Server:** FastAPI with Python
 
-**Selfhost:** Raspberry Pi
+**Hosting:** backend: selfhost Frontend: Vercel
 
 ## Features
 
