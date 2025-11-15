@@ -19,6 +19,22 @@ Thanks to the illustrator for the duck drawings!
 
 Go see his work: [Illustrator]()
 
+## Feedback
+
+Feedback are welcome! Feel free to open an [issue](https://github.com/Gautierpicon/Portfolio/issues) or a [pull request](https://github.com/Gautierpicon/Portfolio/pulls) on the GitHub repository.
+
+## Tech Stack
+
+**Client:** Bun, Astro, Svelte, TailwindCSS
+
+**Server:** FastAPI with Python
+
+**Hosting:** backend: selfhost // Frontend: Vercel
+
+## Features
+
+Chat with the AI and find out who I am, my background, the tools I'm proficient in, and much more. Feel free to ask any questions you may have. I've provided the AI with enough context about myself for it to be able to answer your questions and even provide useful links. 
+
 ## Operating Diagram
 
 ```bash
@@ -85,18 +101,6 @@ Portfolio/
 ├── LICENSE.md
 └── README.md
 ```
-
-## Tech Stack
-
-**Client:** Bun, Astro, Svelte, TailwindCSS
-
-**Server:** FastAPI with Python
-
-**Hosting:** backend: selfhost Frontend: Vercel
-
-## Features
-
-Chat with the AI and find out who I am, my background, the tools I'm proficient in, and much more. Feel free to ask any questions you may have. I've provided the AI with enough context about myself for it to be able to answer your questions and even provide useful links. 
 
 ## Contributing
 
@@ -171,8 +175,4 @@ To do this, create a file named “.env” in the “frontend” file with the f
   PUBLIC_BACKEND_URL=http://localhost:8000
 ```
 
-Go to http://localhost:4321/ to use it
-
-## Feedback
-
-Feedback are welcome! Feel free to open an [issue](https://github.com/Gautierpicon/Portfolio/issues) or a [pull request](https://github.com/Gautierpicon/Portfolio/pulls) on the GitHub repository.
+Go to http://localhost:4321/ to use the website.
