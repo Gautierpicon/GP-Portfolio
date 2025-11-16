@@ -108,7 +108,7 @@ Contributions are always welcome! Here's how to download it and run it locally :
 
 ### Run Locally
 
-#### prerequisites:
+#### Prerequisites:
 
 - [Bun](https://bun.com/)
 - [Python](https://www.python.org/)
