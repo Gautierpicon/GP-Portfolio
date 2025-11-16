@@ -55,7 +55,7 @@ Chat with the AI and find out who I am, my background, the tools I'm proficient 
 │  └────────┬───────┘  │
 │           ▼          │
 │  ┌────────────────┐  │
-│  │ Ollama       ◀──────── IA locale
+│  │ Ollama       ◀──────── Local AI
 │  │                │  │
 │  └────────────────┘  │
 └──────────────────────┘
