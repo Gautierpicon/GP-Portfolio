@@ -81,11 +81,13 @@ Portfolio/
 │   │   │   ├── duck.webp
 │   │   │   └── hiw.webp
 │   │   ├── components/
-│   │   │   └── ChatInput.svelte
+│   │   │   ├── ChatInput.svelte
+│   │   │   └── ConversationView.svelte
 │   │   ├── layouts/
 │   │   │   └── Layout.astro
 │   │   ├── pages/
 │   │   │   ├── 404.astro
+│   │   │   ├── chat.astro
 │   │   │   ├── how-it-works.astro
 │   │   │   └── index.astro
 │   │   └── global.css

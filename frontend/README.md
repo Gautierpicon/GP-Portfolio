@@ -23,13 +23,15 @@ frontend/
 │   │   ├── duck.webp       # Duck illustration
 │   │   └── hiw.webp        # "How it works" image
 │   ├── components/
-│   │   └── ChatInput.svelte # AI chat component
+│   │   ├── ChatInput.svelte # AI chat component
+│   │   └── ConversationView.svelte # interactive interface for chatting
 │   ├── layouts/
 │   │   └── Layout.astro    # Main layout
 │   ├── pages/
-│   │   ├── index.astro     # Home page
 │   │   ├── 404.astro       # Error page
-│   │   └── how-it-works.astro # Explanatory page
+│   │   ├── chat.astro      # contains ConversationView.svelte
+│   │   ├── how-it-works.astro # Explanatory page
+│   │   └── index.astro     # Home page
 │   └── global.css          # Global styles
 ├── .gitignore bun.lock
 ├── astro.config.mjs        # Astro configuration
