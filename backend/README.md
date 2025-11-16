@@ -204,10 +204,3 @@ ollama_response = await client.post(
 ## Feedback
 
 Feedback are welcome! Feel free to open an [issue](https://github.com/Gautierpicon/Portfolio/issues) or a [pull request](https://github.com/Gautierpicon/Portfolio/pulls) on the GitHub repository.
-
-## Useful Links
-
-- [FastAPI Documentation](https://fastapi.tiangolo.com/)
-- [Ollama Documentation](https://github.com/ollama/ollama)
-- [Uvicorn Documentation](https://www.uvicorn.org/)
-- [Frontend README](../frontend/README.md)

@@ -100,26 +100,6 @@ Click on the duck to hear a "quack"! 🦆
 The frontend is deployed on [Vercel](https://vercel.com/).
 Vercel will automatically detect Astro and deploy the site
 
-## Configuration
-
-### Astro
-
-The `astro.config.mjs` file configures:
-- Svelte integration
-- TailwindCSS via Vite
-- Static output mode
-
-### TailwindCSS
-
-Tailwind v4 is integrated via `@tailwindcss/vite` and configured in `global.css`.
-
 ## 🤝 Feedback
 
 Feedback are welcome! Feel free to open an [issue](https://github.com/Gautierpicon/Portfolio/issues) or a [pull request](https://github.com/Gautierpicon/Portfolio/pulls) on the GitHub repository.
-
-## 🔗 Useful Links
-
-- [Astro Documentation](https://docs.astro.build)
-- [Svelte Documentation](https://svelte.dev/docs)
-- [TailwindCSS Documentation](https://tailwindcss.com/docs)
-- [Backend README](../backend/README.md)
