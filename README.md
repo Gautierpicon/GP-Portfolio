@@ -1,5 +1,5 @@
 
-<img src="frontend/src/assets/duck.webp" width="30px" align="left">
+<img src="frontend/src/assets/duck.webp" width="70px" align="left">
 
 
 # Portfolio
