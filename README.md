@@ -6,24 +6,24 @@
 
 My personal protfolio. Have fun !!
 
-## 📜 Additional Documentation
+## Additional Documentation
 
 For more details on the backend or frontend, see the associated readme.md files.
 
 - [Backend README.md](https://github.com/Gautierpicon/Portfolio/tree/main/backend)
 - [Frontend README.md](https://github.com/Gautierpicon/Portfolio/tree/main/frontend)
 
-## 🙏 Acknowledgements
+## Acknowledgements
 
 Thanks to the illustrator for the duck drawings!
 
 Go see his work: [Illustrator]()
 
-## 🤝 Feedback
+## Feedback
 
 Feedback are welcome! Feel free to open an [issue](https://github.com/Gautierpicon/Portfolio/issues) or a [pull request](https://github.com/Gautierpicon/Portfolio/pulls) on the GitHub repository.
 
-## 🚀 Tech Stack
+## Tech Stack
 
 **Client:** Bun, Astro, Svelte, TailwindCSS
 
@@ -31,11 +31,11 @@ Feedback are welcome! Feel free to open an [issue](https://github.com/Gautierpic
 
 **Hosting:** backend: selfhost // Frontend: Vercel
 
-## 🔥 Features
+## Features
 
 Chat with the AI and find out who I am, my background, the tools I'm proficient in, and much more. Feel free to ask any questions you may have. I've provided the AI with enough context about myself for it to be able to answer your questions and even provide useful links. 
 
-## 🔧 Operating Diagram
+## Operating Diagram
 
 ```bash
 ┌──────────────────────┐
@@ -61,7 +61,7 @@ Chat with the AI and find out who I am, my background, the tools I'm proficient 
 └──────────────────────┘
 ```
 
-## 📁 Repository structure
+## Repository structure
 
 ```bash
 Portfolio/
@@ -102,7 +102,7 @@ Portfolio/
 └── README.md
 ```
 
-## 🛠️ Contributing
+## Contributing
 
 Contributions are always welcome! Here's how to download it and run it locally :
 

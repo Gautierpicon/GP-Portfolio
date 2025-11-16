@@ -2,7 +2,7 @@
 
 Frontend for my personal portfolio built with Astro, Svelte, and TailwindCSS.
 
-## 🚀 Tech Stack
+## Tech Stack
 
 - **Framework**: [Astro](https://astro.build/) 5.x
 - **UI Components**: [Svelte](https://svelte.dev/) 5.x
@@ -10,7 +10,7 @@ Frontend for my personal portfolio built with Astro, Svelte, and TailwindCSS.
 - **Package Manager**: [Bun](https://bun.sh/)
 - **Deployment**: [Vercel](https://vercel.com/)
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 frontend/
@@ -40,7 +40,7 @@ frontend/
 └── tsconfig.json           # TypeScript configuration
 ```
 
-## 🛠️ Installation
+## Installation
 
 ### Prerequisites
 
@@ -65,20 +65,20 @@ bun run dev
 
 The site will be accessible at `http://localhost:4321/`
 
-## 📜 Available Commands
+## Available Commands
 
 | Command | Action |
 |----------|--------|
 | `bun install` | Installs dependencies |
 | `bun run dev` | Starts the development server |
 
-## 🔧 Environment Variables
+## Environment Variables
 
 | Variable | Description | Example |
 |----------|-------------|---------|
 | `PUBLIC_BACKEND_URL` | Backend API URL | `http://localhost:8000` |
 
-## 🎨 Features
+## Features
 
 ### Interactive AI Chat
 The `ChatInput.svelte` component allows you to:
@@ -95,12 +95,12 @@ Click on the duck to hear a "quack"! 🦆
 - **How it works** (`/how-it-works`): Explanations about eco-friendly operation
 - **404**: Custom error page
 
-## 🌐 Deployment
+## Deployment
 
 The frontend is deployed on [Vercel](https://vercel.com/).
 Vercel will automatically detect Astro and deploy the site
 
-## 📝 Configuration
+## Configuration
 
 ### Astro
 

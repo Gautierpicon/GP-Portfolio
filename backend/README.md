@@ -2,7 +2,7 @@
 
 FastAPI backend that serves as a proxy between the frontend and a local Ollama AI instance.
 
-## 🚀 Tech Stack
+## Tech Stack
 
 - **Framework**: [FastAPI](https://fastapi.tiangolo.com/)
 - **AI Engine**: [Ollama](https://ollama.ai/)
@@ -10,7 +10,7 @@ FastAPI backend that serves as a proxy between the frontend and a local Ollama A
 - **HTTP Client**: [httpx](https://www.python-httpx.org/)
 - **Hosting**: Self-hosted (Raspberry Pi)
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 backend/
@@ -21,7 +21,7 @@ backend/
 └── README.md
 ```
 
-## 🛠️ Installation
+## Installation
 
 ### Prerequisites
 
@@ -77,7 +77,7 @@ The API will be accessible at `http://localhost:8000`
 | `ALLOWED_ORIGINS` | Comma-separated list of allowed CORS origins | `http://localhost:4321,https://example.com` |
 | `PORT` | Port on which the server runs | `8000` |
 
-## 📡 API Documentation
+## API Documentation
 
 ### Endpoints
 
@@ -153,7 +153,7 @@ FastAPI automatically generates interactive API documentation:
 
 These interfaces allow you to test the API directly from your browser.
 
-## 🔒 CORS Configuration
+## CORS Configuration
 
 The API uses CORS middleware to allow requests from authorized origins only. Origins are configured via the `ALLOWED_ORIGINS` environment variable.
 
@@ -169,7 +169,7 @@ app.add_middleware(
 )
 ```
 
-## 🤖 Ollama Integration
+## Ollama Integration
 
 The backend communicates with Ollama via its REST API:
 
@@ -191,7 +191,7 @@ ollama_response = await client.post(
 )
 ```
 
-## 📊 Dependencies
+## Dependencies
 
 | Package | Version | Purpose |
 |---------|---------|---------|
@@ -201,11 +201,11 @@ ollama_response = await client.post(
 | `pydantic` | ≥2.10.0 | Data validation |
 | `python-dotenv` | 1.0.0 | Environment variables |
 
-## 🤝 Feedback
+## Feedback
 
 Feedback are welcome! Feel free to open an [issue](https://github.com/Gautierpicon/Portfolio/issues) or a [pull request](https://github.com/Gautierpicon/Portfolio/pulls) on the GitHub repository.
 
-## 🔗 Useful Links
+## Useful Links
 
 - [FastAPI Documentation](https://fastapi.tiangolo.com/)
 - [Ollama Documentation](https://github.com/ollama/ollama)
