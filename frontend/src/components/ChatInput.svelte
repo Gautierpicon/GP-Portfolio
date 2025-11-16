@@ -1,11 +1,10 @@
 <script>
   import { onMount } from "svelte";
 
-  const BACKEND_URL = import.meta.env.PUBLIC_BACKEND_URL;
+  export let onSend = null;
+  export let disabled = false;
 
   let message = "";
-  let response = "";
-  let isLoading = false;
   let textarea;
 
   const autoResize = () => {
@@ -17,37 +16,17 @@
     autoResize();
   });
 
-  const sendMessage = async () => {
+  const sendMessage = () => {
     const trimmed = message.trim();
     if (!trimmed) return;
 
-    isLoading = true;
-    response = "";
-
-    try {
-      const res = await fetch(`${BACKEND_URL}/api/chat`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: trimmed })
-      });
-
-      if (!res.ok) {
-        throw new Error(`HTTP error! status: ${res.status}`);
-      }
-
-      const data = await res.json();
-      if (data.response) {
-        response = data.response;
-      } else {
-        alert("No response received from the server");
-      }
-    } catch (e) {
-      console.error(e);
-      alert("Failed to send message. Make sure the backend is running at " + BACKEND_URL);
-    } finally {
+    if (onSend) {
+      onSend(trimmed);
       message = "";
-      isLoading = false;
       autoResize();
+    } else {
+      sessionStorage.setItem('initialMessage', trimmed);
+      window.location.href = '/chat';
     }
   };
 
@@ -69,18 +48,19 @@
         style="max-height: 12rem;"
         on:input={autoResize}
         on:keydown={handleKeydown}
+        disabled={disabled}
     ></textarea>
 
     <div class="flex justify-end px-2 py-2">
         <button
             on:click={sendMessage}
-            disabled={isLoading || message.trim() === ""}
+            disabled={disabled || message.trim() === ""}
             aria-label="Send message"
             class="w-9 h-9 rounded-full flex items-center justify-center transition
                 {message.trim() === '' ? 'cursor-not-allowed bg-gray-200' :
-                isLoading ? 'cursor-wait bg-gray-400' :
+                disabled ? 'cursor-wait bg-gray-400' :
                 'cursor-pointer bg-black'}"
-            >
+        >
             <svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 fill="none"
@@ -99,10 +79,3 @@
         </button>
     </div>
 </div>
-
-{#if response}
-    <div class="w-full max-w-2xl bg-white rounded-3xl shadow-sm p-6 mt-5">
-        <h3 class="font-bold text-lg mb-3">Response:</h3>
-        <p class="text-gray-800 whitespace-pre-wrap">{response}</p>
-    </div>
-{/if}

@@ -1,0 +1,10 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ConversationView from '../components/ConversationView.svelte';
+
+const pageTitle = "Gautier Picon's Portfolio";
+---
+
+<Layout pageTitle={pageTitle}>
+  <ConversationView client:load />
+</Layout>
