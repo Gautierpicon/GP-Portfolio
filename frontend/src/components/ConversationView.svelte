@@ -59,41 +59,64 @@
 </script>
 
 <div class="min-h-screen flex flex-col">
-  <div 
-    bind:this={messagesContainer}
-    class="flex-1 overflow-y-auto px-4 py-6 space-y-4"
-  >
-    {#if messages.length === 0}
-      <div class="flex items-center justify-center h-full text-gray-400">
-        <p>Start the conversation...</p>
-      </div>
-    {/if}
-
-    {#each messages as msg}
-      <div class="flex {msg.role === 'user' ? 'justify-end' : 'justify-start'}">
-        <div 
-          class="max-w-2xl rounded-3xl text-gray-800
-            {msg.role === 'user' 
-              ? 'px-4 py-2 bg-[#f7f7f7] shadow-sm' 
-              : 'px-6 py-4 bg-transparent'}"
-        >
-          <p class="whitespace-pre-wrap wrap-break-words wrap-anywhere">{msg.content}</p>
+    <div 
+        bind:this={messagesContainer}
+        class="flex-1 overflow-y-auto px-4 py-6 space-y-4"
+    >
+        {#if messages.length === 0}
+        <div class="flex items-center justify-center h-full text-gray-400">
+            <p>Start the conversation...</p>
         </div>
-      </div>
-    {/each}
+        {/if}
 
-    {#if isLoading}
-      <div class="flex justify-start">
-        <div class="max-w-2xl bg-white rounded-3xl px-6 py-4 shadow-sm">
-          <div class="flex space-x-2">
-            <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-            <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
-            <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
-          </div>
-        </div>
-      </div>
-    {/if}
-  </div>
+        {#each messages as msg}
+            <div class="flex {msg.role === 'user' ? 'justify-end' : 'justify-start'}">
+                <div 
+                class="max-w-2xl rounded-3xl text-gray-800
+                    {msg.role === 'user' 
+                    ? 'px-4 py-2 bg-[#f7f7f7] shadow-sm' 
+                    : 'px-6 py-4 bg-transparent'}"
+                >
+                <p class="whitespace-pre-wrap wrap-break-words wrap-anywhere">
+                    {msg.content}
+                </p>
+
+                {#if msg.role === 'assistant'}
+                    <div class="mt-3 flex">
+                    <img 
+                        src="../src/assets/duck.webp"
+                        alt="Duck"
+                        class="w-15 h-15 rounded-full bg-gray-200"
+                    />
+                    </div>
+                {/if}
+
+                </div>
+            </div>
+        {/each}
+
+        {#if isLoading}
+            <div class="flex justify-start">
+                <div class="max-w-2xl rounded-3xl px-6 py-4 bg-transparent">
+                    <div class="bg-white rounded-3xl px-6 py-4 shadow-sm">
+                        <div class="flex space-x-2">
+                            <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+                            <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                            <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
+                        </div>
+                    </div>
+
+                    <div class="mt-3 flex">
+                        <img 
+                        src="../src/assets/duck.webp"
+                        alt="Duck loading"
+                        class="w-14 h-14 rounded-full bg-gray-200"
+                        />
+                    </div>
+                </div>
+            </div>
+        {/if}
+    </div>
 
   <div class="bg-white p-4">
     <div class="max-w-2xl mx-auto">
