@@ -77,7 +77,7 @@
               ? 'px-4 py-2 bg-[#f7f7f7] shadow-sm' 
               : 'px-6 py-4 bg-transparent'}"
         >
-          <p class="whitespace-pre-wrap">{msg.content}</p>
+          <p class="whitespace-pre-wrap wrap-break-words wrap-anywhere">{msg.content}</p>
         </div>
       </div>
     {/each}
