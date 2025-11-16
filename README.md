@@ -108,6 +108,12 @@ Contributions are always welcome! Here's how to download it and run it locally :
 
 ### Run Locally
 
+#### prerequisites:
+
+- [Bun](https://bun.com/)
+- [Python](https://www.python.org/)
+- [Ollama](https://ollama.com/)
+
 Clone the project
 
 ```bash
