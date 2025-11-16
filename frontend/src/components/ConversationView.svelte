@@ -64,7 +64,7 @@
         class="flex-1 overflow-y-auto px-4 py-6 space-y-4"
     >
         {#if messages.length === 0}
-        <div class="flex items-center justify-center h-full text-gray-400">
+        <div class="flex items-center justify-center h-full text-gray-600">
             <p>Start the conversation...</p>
         </div>
         {/if}
