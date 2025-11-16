@@ -65,7 +65,7 @@
   >
     {#if messages.length === 0}
       <div class="flex items-center justify-center h-full text-gray-400">
-        <p>Commencez la conversation...</p>
+        <p>Start the conversation...</p>
       </div>
     {/if}
 
