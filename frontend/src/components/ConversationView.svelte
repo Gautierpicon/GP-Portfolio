@@ -72,10 +72,10 @@
     {#each messages as msg}
       <div class="flex {msg.role === 'user' ? 'justify-end' : 'justify-start'}">
         <div 
-          class="max-w-2xl rounded-3xl px-6 py-4 shadow-sm
+          class="max-w-2xl rounded-3xl text-gray-800
             {msg.role === 'user' 
-              ? 'bg-black text-white' 
-              : 'bg-white text-gray-800'}"
+              ? 'px-4 py-2 bg-[#f7f7f7] shadow-sm' 
+              : 'px-6 py-4 bg-transparent'}"
         >
           <p class="whitespace-pre-wrap">{msg.content}</p>
         </div>
