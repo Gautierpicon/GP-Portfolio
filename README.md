@@ -1,7 +1,6 @@
 
 <img src="frontend/src/assets/duck.webp" width="70px" align="left">
 
-
 # Portfolio
 
 My personal protfolio. Have fun !!
@@ -10,8 +9,8 @@ My personal protfolio. Have fun !!
 
 For more details on the backend or frontend, see the associated readme.md files.
 
-- [Backend README.md](https://github.com/Gautierpicon/Portfolio/tree/main/backend)
-- [Frontend README.md](https://github.com/Gautierpicon/Portfolio/tree/main/frontend)
+- [Backend README](https://github.com/Gautierpicon/Portfolio/tree/main/backend)
+- [Frontend README](https://github.com/Gautierpicon/Portfolio/tree/main/frontend)
 
 ## Acknowledgements
 
