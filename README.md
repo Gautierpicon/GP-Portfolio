@@ -1,5 +1,5 @@
 
-![Logo]()
+<img src="frontend/src/assets/duck.webp" width="30px" align="left">
 
 
 # Portfolio
