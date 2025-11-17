@@ -69,31 +69,32 @@
         </div>
         {/if}
 
-        {#each messages as msg}
-            <div class="flex {msg.role === 'user' ? 'justify-end' : 'justify-start'}">
-                <div 
+{#each messages as msg}
+    <div class="flex {msg.role === 'user' ? 'justify-end' : 'justify-start'}">
+        <div class="flex flex-col items-start pl-6 {msg.role === 'assistant' ? 'ml-0' : ''}">
+            <div 
                 class="max-w-2xl rounded-3xl text-gray-800
                     {msg.role === 'user' 
                     ? 'px-4 py-2 bg-[#f7f7f7] shadow-sm' 
-                    : 'px-6 py-4 bg-transparent'}"
-                >
+                    : 'px-6 py-4 border bg-transparent'}"
+            >
                 <p class="whitespace-pre-wrap wrap-break-words wrap-anywhere">
                     {msg.content}
                 </p>
+            </div>
 
-                {#if msg.role === 'assistant'}
-                    <div class="mt-3 flex">
+            {#if msg.role === 'assistant'}
+                <div class="mt-3 flex">
                     <img 
                         src="../src/assets/duck.webp"
                         alt="Duck"
                         class="w-15 h-15 rounded-full bg-gray-200"
                     />
-                    </div>
-                {/if}
-
                 </div>
-            </div>
-        {/each}
+            {/if}
+        </div>
+    </div>
+{/each}
 
         {#if isLoading}
             <div class="flex justify-start">
