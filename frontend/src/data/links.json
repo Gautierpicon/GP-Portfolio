@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Portfolio",
+    "url": "/",
+    "icon": "portfolio.webp",
+    "description": "My portfolio"
+  },
+  {
+    "name": "GitHub",
+    "url": "https://github.com/Gautierpicon",
+    "icon": "github.webp",
+    "description": "Check out my code and projects"
+  },
+  {
+    "name": "Twitter ",
+    "url": "https://x.com/vu_zip",
+    "icon": "twitter.webp",
+    "description": "Follow me on Twitter"
+  },
+  {
+    "name": "Bluesky",
+    "url": "https://bsky.app/profile/vu-zip.bsky.social",
+    "icon": "bluesky.webp",
+    "description": "Connect on Bluesky"
+  },
+  {
+    "name": "Email",
+    "url": "mailto:o8qelbdv@anonaddy.me",
+    "icon": "email.webp",
+    "description": "Send me an email"
+  }
+]
