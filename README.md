@@ -11,12 +11,6 @@ For more details on the backend or frontend, see the associated readme.md files.
 - [Backend README](https://github.com/Gautierpicon/Portfolio/tree/main/backend)
 - [Frontend README](https://github.com/Gautierpicon/Portfolio/tree/main/frontend)
 
-## Acknowledgements
-
-Thanks to the illustrator for the duck drawings!
-
-Go see his work: [Illustrator]()
-
 ## Feedback
 
 Feedback are welcome! Feel free to open an [issue](https://github.com/Gautierpicon/Portfolio/issues) or a [pull request](https://github.com/Gautierpicon/Portfolio/pulls) on the GitHub repository.
