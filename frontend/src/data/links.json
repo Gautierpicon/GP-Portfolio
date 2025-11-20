@@ -24,6 +24,12 @@
     "description": "Kinda dead, but less toxic than his evil brother"
   },
   {
+    "name": "Signal",
+    "url": "https://signal.me/#eu/X7HYz7vkV-PHNHZv-rZQCFvZMgPBI7-WJp3B7V72uiZWDbRqVoFK95mYAhR2TkCK",
+    "icon": "signal.webp",
+    "description": "Message me on Signal"
+  },
+  {
     "name": "Email",
     "url": "mailto:o8qelbdv@anonaddy.me",
     "icon": "email.webp",
