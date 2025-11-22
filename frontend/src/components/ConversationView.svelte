@@ -96,7 +96,7 @@
               </p>
             </div>
 
-            {#if msg.role === 'assistant' && msg.content !== ''}
+            {#if msg.role === 'assistant' && msg.content !== '' && idx === messages.length - 1}
               <div class="mt-3 flex">
                 <img 
                   src="../src/assets/duck.webp"
