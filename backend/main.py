@@ -1,8 +1,10 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 import httpx
 import os
+import json
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -24,34 +26,42 @@ app.add_middleware(
 class ChatRequest(BaseModel):
     message: str
 
-class ChatResponse(BaseModel):
-    response: str
-
-@app.post("/api/chat", response_model=ChatResponse)
-async def chat(request: ChatRequest):
+async def generate_response(message: str):
+    """Générateur qui stream la réponse token par token"""
     try:
         async with httpx.AsyncClient() as client:
-            ollama_response = await client.post(
+            async with client.stream(
+                'POST',
                 f'{OLLAMA_HOST}/api/generate',
                 json={
                     'model': OLLAMA_MODEL,
-                    'prompt': request.message,
-                    'stream': False
+                    'prompt': message,
+                    'stream': True
                 },
                 timeout=60.0
-            )
-            ollama_response.raise_for_status()
-            data = ollama_response.json()
-            
-        return ChatResponse(response=data['response'])
+            ) as response:
+                if response.status_code != 200:
+                    yield json.dumps({"error": f"Ollama error: {response.status_code}"})
+                    return
+                
+                async for line in response.aiter_lines():
+                    if line:
+                        data = json.loads(line)
+                        if 'response' in data:
+                            yield data['response']
     
     except httpx.HTTPError as e:
-        raise HTTPException(
-            status_code=500, 
-            detail=f"Failed to connect to Ollama: {str(e)}"
-        )
+        yield json.dumps({"error": f"Failed to connect to Ollama: {str(e)}"})
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        yield json.dumps({"error": str(e)})
+
+@app.post("/api/chat")
+async def chat(request: ChatRequest):
+    """Endpoint chat qui retourne un stream"""
+    return StreamingResponse(
+        generate_response(request.message),
+        media_type="text/event-stream"
+    )
 
 @app.get("/health")
 async def health():
