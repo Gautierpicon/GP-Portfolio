@@ -69,9 +69,6 @@ Portfolio/
 │   │   └── quack.mp3
 │   ├── src/
 │   │   ├── assets/
-│   │   │   ├── 404.webp
-│   │   │   ├── duck.webp
-│   │   │   └── hiw.webp
 │   │   ├── components/
 │   │   │   ├── ChatInput.svelte
 │   │   │   └── ConversationView.svelte

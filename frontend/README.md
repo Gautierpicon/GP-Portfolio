@@ -19,9 +19,6 @@ frontend/
 │   └── quack.mp3           # Duck sound
 ├── src/
 │   ├── assets/             # Images and resources
-│   │   ├── 404.webp        # 404 page image
-│   │   ├── duck.webp       # Duck illustration
-│   │   └── hiw.webp        # "How it works" image
 │   ├── components/
 │   │   ├── ChatInput.svelte # AI chat component
 │   │   └── ConversationView.svelte # interactive interface for chatting
