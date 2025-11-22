@@ -8,7 +8,7 @@ FastAPI backend that serves as a proxy between the frontend and a local Ollama A
 - **AI Engine**: [Ollama](https://ollama.ai/)
 - **Server**: [Uvicorn](https://www.uvicorn.org/)
 - **HTTP Client**: [httpx](https://www.python-httpx.org/)
-- **Hosting**: Self-hosted (Raspberry Pi)
+- **Hosting**: Self-hosted
 
 ## Project Structure
 
@@ -16,7 +16,6 @@ FastAPI backend that serves as a proxy between the frontend and a local Ollama A
 backend/
 ├── main.py              # Main FastAPI application
 ├── requirements.txt     # Python dependencies
-├── .env                 # Environment variables (not in repo)
 ├── .gitignore
 └── README.md
 ```
@@ -25,7 +24,7 @@ backend/
 
 ### Prerequisites
 
-- Python 3.8+
+- Python 3.9+
 - [Ollama](https://ollama.ai/) installed and running locally
 - An Ollama model pulled (e.g., `ollama pull gemma3:1b`)
 
@@ -53,29 +52,21 @@ venv\Scripts\activate     # On Windows
 pip install -r requirements.txt
 ```
 
-5. Create a `.env` file at the root of the backend folder:
-```bash
-OLLAMA_HOST=http://localhost:11434
-OLLAMA_MODEL=gemma3:1b
-ALLOWED_ORIGINS=http://localhost:4321,https://frontend.com
-PORT=8000
-```
-
-6. Start the server:
+5. Start the server:
 ```bash
 uvicorn main:app --reload --port 8000
 ```
 
 The API will be accessible at `http://localhost:8000`
 
-## 🔧 Environment Variables
+## Configuration
 
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `OLLAMA_HOST` | URL of the Ollama instance | `http://localhost:11434` |
-| `OLLAMA_MODEL` | Name of the Ollama model to use | `llama2` or `mistral` |
-| `ALLOWED_ORIGINS` | Comma-separated list of allowed CORS origins | `http://localhost:4321,https://example.com` |
-| `PORT` | Port on which the server runs | `8000` |
+```python
+OLLAMA_HOST = "http://localhost:11434"
+OLLAMA_MODEL = "gemma3:1b"
+ALLOWED_ORIGINS = ["http://localhost:4321"]
+PORT = 8000
+```
 
 ## API Documentation
 
@@ -142,64 +133,32 @@ Health check endpoint to verify the API is running and properly configured.
 curl http://localhost:8000/health
 ```
 
----
-
-### Interactive Documentation
-
-FastAPI automatically generates interactive API documentation:
-
-- **Swagger UI**: `http://localhost:8000/docs`
-- **ReDoc**: `http://localhost:8000/redoc`
-
-These interfaces allow you to test the API directly from your browser.
-
-## CORS Configuration
-
-The API uses CORS middleware to allow requests from authorized origins only. Origins are configured via the `ALLOWED_ORIGINS` environment variable.
-
-```python
-ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS").split(",")
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=ALLOWED_ORIGINS,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-```
 
 ## Ollama Integration
 
-The backend communicates with Ollama via its REST API:
+The backend streams the Ollama response with:
 
-1. The frontend sends a message to `/api/chat`
-2. The backend forwards the request to Ollama at `{OLLAMA_HOST}/api/generate`
-3. Ollama processes the request with the configured model
-4. The backend returns the AI's response to the frontend
-
-**Ollama API Call:**
 ```python
-ollama_response = await client.post(
+client.stream(
+    'POST',
     f'{OLLAMA_HOST}/api/generate',
     json={
         'model': OLLAMA_MODEL,
-        'prompt': request.message,
-        'stream': False
-    },
-    timeout=60.0
+        'prompt': message,
+        'stream': True
+    }
 )
 ```
+The stream is then sent back to the frontend via StreamingResponse
 
 ## Dependencies
 
 | Package | Version | Purpose |
 |---------|---------|---------|
-| `fastapi` | ≥0.115.0 | Web framework |
-| `uvicorn[standard]` | ≥0.32.0 | ASGI server |
-| `httpx` | ≥0.27.0 | Async HTTP client |
-| `pydantic` | ≥2.10.0 | Data validation |
-| `python-dotenv` | 1.0.0 | Environment variables |
+| `fastapi` | ≥0.121.0 | Web framework |
+| `uvicorn[standard]` | ≥0.32.1 | ASGI server |
+| `httpx` | ≥0.28.1 | Async HTTP client |
+| `pydantic` | ≥2.10.3 | Data validation |
 
 ## Feedback
 

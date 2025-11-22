@@ -1,19 +1,16 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 import httpx
-import os
 import json
-from dotenv import load_dotenv
-
-load_dotenv()
 
 app = FastAPI()
 
-OLLAMA_HOST = os.getenv("OLLAMA_HOST")
-OLLAMA_MODEL = os.getenv("OLLAMA_MODEL")
-ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS").split(",")
+OLLAMA_HOST = "http://localhost:11434"
+OLLAMA_MODEL = "gemma3:1b"
+ALLOWED_ORIGINS = ["http://localhost:4321"]
+PORT = 8000
 
 app.add_middleware(
     CORSMiddleware,
@@ -27,7 +24,6 @@ class ChatRequest(BaseModel):
     message: str
 
 async def generate_response(message: str):
-    """Générateur qui stream la réponse token par token"""
     try:
         async with httpx.AsyncClient() as client:
             async with client.stream(
@@ -73,5 +69,4 @@ async def health():
 
 if __name__ == "__main__":
     import uvicorn
-    port = int(os.getenv("PORT", 8000))
-    uvicorn.run(app, host="0.0.0.0", port=port)
+    uvicorn.run(app, host="0.0.0.0", port=PORT)
