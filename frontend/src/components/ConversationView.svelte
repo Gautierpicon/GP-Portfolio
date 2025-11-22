@@ -84,7 +84,7 @@
     {#each messages as msg, idx}
       {#if !(isLoading && idx === messages.length - 1 && msg.role === 'assistant' && msg.content === '')}
         <div class="flex {msg.role === 'user' ? 'justify-end' : 'justify-start'}">
-          <div class="flex flex-col items-start pl-6 {msg.role === 'assistant' ? 'ml-0' : ''}">
+          <div class="flex flex-col items-start {msg.role === 'assistant' ? 'pl-6 ml-0' : 'pr-6'}">
             <div 
               class="max-w-2xl rounded-3xl text-gray-800
                 {msg.role === 'user' 
