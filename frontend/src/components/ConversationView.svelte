@@ -96,10 +96,10 @@
               </p>
             </div>
 
-            {#if msg.role === 'assistant' && msg.content !== '' && idx === messages.length - 1}
+            {#if msg.role === 'assistant' && idx === messages.length - 1}
               <div class="mt-3 flex">
                 <img 
-                  src="../src/assets/duck.webp"
+                  src={isLoading ? "../src/assets/thinking-duck.webp" : "../src/assets/duck.webp"}
                   alt="Duck"
                   class="w-15 h-15 rounded-full bg-gray-200"
                 />
@@ -123,8 +123,8 @@
 
           <div class="mt-3 flex">
             <img 
-              src="../src/assets/duck.webp"
-              alt="Duck loading"
+              src="../src/assets/thinking-duck.webp"
+              alt="Duck thinking"
               class="w-15 h-15 rounded-full bg-gray-200"
             />
           </div>
