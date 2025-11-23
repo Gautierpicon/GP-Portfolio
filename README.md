@@ -58,9 +58,8 @@ Chat with the AI and find out who I am, my background, the tools I'm proficient 
 ```bash
 Portfolio/
 ├── backend/
-│   ├── .gitignore
-│   ├── README.md
 │   ├── main.py
+│   ├── README.md
 │   └── requirements.txt
 │
 ├── frontend/
@@ -80,15 +79,8 @@ Portfolio/
 │   │   │   ├── how-it-works.astro
 │   │   │   └── index.astro
 │   │   └── global.css
-│   ├── .gitignore
-│   ├── README.md
-│   ├── astro.config.mjs
-│   ├── bun.lock
-│   ├── package.json
-│   ├── svelte.config.js
-│   └── tsconfig.json
+│   └── README.md
 │
-├── .gitignore
 ├── LICENSE.md
 └── README.md
 ```

@@ -30,13 +30,7 @@ frontend/
 │   │   ├── how-it-works.astro # Explanatory page
 │   │   └── index.astro     # Home page
 │   └── global.css          # Global styles
-├── .gitignore bun.lock
-├── astro.config.mjs        # Astro configuration
-├── bun.lock                # Bun configuration
-├── package.json
-├── README.md               # Frontend documentation
-├── svelte.config.js        # Svelte configuration
-└── tsconfig.json           # TypeScript configuration
+└── README.md               # Frontend documentation
 ```
 
 ## Installation

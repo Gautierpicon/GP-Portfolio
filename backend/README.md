@@ -16,7 +16,6 @@ FastAPI backend that serves as a proxy between the frontend and a local Ollama A
 backend/
 ├── main.py              # Main FastAPI application
 ├── requirements.txt     # Python dependencies
-├── .gitignore
 └── README.md
 ```
 
