@@ -99,6 +99,6 @@ Click on the duck to hear a "quack"! 🦆
 The frontend is deployed on [Vercel](https://vercel.com/).
 Vercel will automatically detect Astro and deploy the site
 
-## 🤝 Feedback
+## Feedback
 
-Feedback are welcome! Feel free to open an [issue](https://github.com/Gautierpicon/Portfolio/issues) or a [pull request](https://github.com/Gautierpicon/Portfolio/pulls) on the GitHub repository.
+Feedback are welcome! Feel free to open an [issue](https://github.com/Gautierpicon/GP-Portfolio/issues) or a [pull request](https://github.com/Gautierpicon/GP-Portfolio/pulls) on the GitHub repository.

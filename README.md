@@ -8,12 +8,12 @@ My personal protfolio. Have fun !!
 
 For more details on the backend or frontend, see the associated readme.md files.
 
-- [Backend README](https://github.com/Gautierpicon/Portfolio/tree/main/backend)
-- [Frontend README](https://github.com/Gautierpicon/Portfolio/tree/main/frontend)
+- [Backend README](https://github.com/Gautierpicon/GP-Portfolio/tree/main/frontend)
+- [Frontend README](https://github.com/Gautierpicon/GP-Portfolio/tree/main/backend)
 
 ## Feedback
 
-Feedback are welcome! Feel free to open an [issue](https://github.com/Gautierpicon/Portfolio/issues) or a [pull request](https://github.com/Gautierpicon/Portfolio/pulls) on the GitHub repository.
+Feedback are welcome! Feel free to open an [issue](https://github.com/Gautierpicon/GP-Portfolio/issues) or a [pull request](https://github.com/Gautierpicon/GP-Portfolio/pulls) on the GitHub repository.
 
 ## Tech Stack
 
@@ -108,7 +108,7 @@ Contributions are always welcome! Here's how to download it and run it locally :
 Clone the project
 
 ```bash
-  git clone https://github.com/Gautierpicon/Portfolio
+  git clone https://github.com/Gautierpicon/GP-Portfolio
 ```
 
 Go to the project directory
