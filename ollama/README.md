@@ -67,7 +67,7 @@ ollama create DuckAI -f Modelfile
 
 ## Contributing
 
-Feel free to open an [issue](https://github.com/Gautierpicon/Portfolio/issues), submit a [pull request](https://github.com/Gautierpicon/Portfolio/pulls) with improvements or variations of the duck model! You can:
+Feel free to open an [issue](https://github.com/Gautierpicon/GP-Portfolio/issues), submit a [pull request](https://github.com/Gautierpicon/GP-Portfolio/pulls) with improvements or variations of the duck model! You can:
 
 - Modify the system prompt for different personalities
 - Test with different base models
