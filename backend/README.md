@@ -124,7 +124,7 @@ Health check endpoint to verify the API is running and properly configured.
 {
   "status": "ok",
   "ollama_host": "http://localhost:11434",
-  "model": "gemma3:1b"
+  "model": "DuckAI"
 }
 ```
 
