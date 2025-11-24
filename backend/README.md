@@ -63,7 +63,7 @@ The API will be accessible at `http://localhost:8000`
 
 ```python
 OLLAMA_HOST = "http://localhost:11434"
-OLLAMA_MODEL = "gemma3:1b"
+OLLAMA_MODEL = "DuckAI"
 ALLOWED_ORIGINS = ["http://localhost:4321"]
 PORT = 8000
 ```
