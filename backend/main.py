@@ -8,7 +8,7 @@ import json
 app = FastAPI()
 
 OLLAMA_HOST = "http://localhost:11434"
-OLLAMA_MODEL = "gemma3:1b"
+OLLAMA_MODEL = "DuckAI"
 ALLOWED_ORIGINS = ["http://localhost:4321"]
 PORT = 8000
 
