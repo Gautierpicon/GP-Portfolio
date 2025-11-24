@@ -12,15 +12,7 @@ A fun and quirky AI model. The model is powered by Gemma 3 1B and customized thr
 
 Download and install [Ollama.ai](https://ollama.ai) from the official website appropriate for your operating system (macOS, Windows, or Linux).
 
-### 2. Clone or Download the Repository
-
-Clone this repository to your local machine, or download the files directly.
-
-```bash
-git clone https://github.com/Gautierpicon/GP-Portfolio/
-```
-
-### 3. Create the Duck Model
+### 2. Create the Duck Model
 
 Navigate to the `ollama` directory containing the `Modelfile` 
 
@@ -36,7 +28,7 @@ ollama create DuckAI -f Modelfile
 
 This command creates a new model called `DuckAI` using the specifications in your Modelfile.
 
-### 4. Run the Model
+### 3. Run the Model
 
 Start a chat session with your duck:
 

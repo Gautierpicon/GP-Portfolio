@@ -52,7 +52,11 @@ venv\Scripts\activate     # On Windows
 pip install -r requirements.txt
 ```
 
-5. Start the server:
+5. Custom model configuration
+
+To set up the custom model, go to the dedicated [README.md](../DuckAI/README.md) file for the model.
+
+6. Start the server:
 ```bash
 uvicorn main:app --reload --port 8000
 ```
