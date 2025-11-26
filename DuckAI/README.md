@@ -1,4 +1,4 @@
-# Ollama Modelfile
+# DuckAI - Portfolio
 
 A fun and quirky AI model. The model is powered by Gemma 3 1B and customized through a Modelfile.
 
