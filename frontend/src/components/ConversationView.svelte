@@ -118,9 +118,9 @@
         <div class="flex flex-col items-start pl-6">
           <div class="max-w-2xl rounded-3xl px-6 py-4 border bg-transparent">
             <div class="flex space-x-2">
-              <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-              <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
-              <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
+              <div class="w-2 h-2 bg-gray-500 rounded-full animate-bounce"></div>
+              <div class="w-2 h-2 bg-gray-500 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+              <div class="w-2 h-2 bg-gray-500 rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
             </div>
           </div>
 
