@@ -65,7 +65,7 @@
       }
     } catch (e) {
       console.error(e);
-      messages[assistantIndex].content = `Erreur: ${e.message}. Ensure that the backend is functioning at ${BACKEND_URL}`;
+      messages[assistantIndex].content = `Erreur: ${e.message}. The server appears to be inaccessible`;
       messages = [...messages];
     } finally {
       isLoading = false;
