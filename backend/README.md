@@ -8,6 +8,7 @@ FastAPI backend that serves as a proxy between the frontend and a local Ollama A
 - **AI Engine**: [Ollama](https://ollama.ai/)
 - **Server**: [Uvicorn](https://www.uvicorn.org/)
 - **HTTP Client**: [httpx](https://www.python-httpx.org/)
+- **Environment Management**: [python-dotenv](https://pypi.org/project/python-dotenv/)
 - **Hosting**: Self-hosted
 
 ## Project Structure
@@ -16,6 +17,7 @@ FastAPI backend that serves as a proxy between the frontend and a local Ollama A
 backend/
 ├── main.py              # Main FastAPI application
 ├── requirements.txt     # Python dependencies
+├── .env                 # Environment variables (not tracked by git)
 └── README.md
 ```
 
@@ -51,20 +53,51 @@ venv\Scripts\activate     # On Windows
 pip install -r requirements.txt
 ```
 
-5. Start the server:
+5. **Create your `.env` file:**
+```bash
+cp .env.example .env
+```
+
+Edit `.env`:
+
+Example `.env` for **local development**:
+```dotenv
+OLLAMA_HOST=http://localhost:11434
+OLLAMA_MODEL=gemma3:1b
+ALLOWED_ORIGINS=http://localhost:4321
+PORT=8000
+```
+
+Example `.env` for **production**:
+```dotenv
+OLLAMA_HOST=http://localhost:11434
+OLLAMA_MODEL=gemma3:1b
+ALLOWED_ORIGINS=https://your-portfolio.vercel.app
+PORT=8000
+```
+
+6. Start the server:
 ```bash
 uvicorn main:app --reload --port 8000
 ```
 
 The API will be accessible at `http://localhost:8000`
 
-## Configuration
+## Environment Variables
 
-```python
-OLLAMA_HOST = "http://localhost:11434"
-OLLAMA_MODEL = "gemma3:1b"
-ALLOWED_ORIGINS = ["http://localhost:4321"]
-PORT = 8000
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `OLLAMA_HOST` | URL of the Ollama instance | `http://localhost:11434` |
+| `OLLAMA_MODEL` | Ollama model to use | `gemma3:1b` |
+| `ALLOWED_ORIGINS` | CORS allowed origins (comma-separated) | `http://localhost:4321` |
+| `PORT` | Server port | `8000` |
+
+### Multiple Origins
+
+To allow multiple origins (e.g., local dev + production), use comma-separated values:
+
+```dotenv
+ALLOWED_ORIGINS=http://localhost:4321,https://your-portfolio.vercel.app
 ```
 
 ## API Documentation
@@ -154,10 +187,11 @@ The stream is then sent back to the frontend via StreamingResponse
 
 | Package | Version | Purpose |
 |---------|---------|---------|
-| `fastapi` | ≥0.121.0 | Web framework |
-| `uvicorn[standard]` | ≥0.32.1 | ASGI server |
-| `httpx` | ≥0.28.1 | Async HTTP client |
-| `pydantic` | ≥2.10.3 | Data validation |
+| `fastapi` | 0.121.0 | Web framework |
+| `uvicorn[standard]` | 0.32.1 | ASGI server |
+| `httpx` | 0.28.1 | Async HTTP client |
+| `pydantic` | 2.10.3 | Data validation |
+| `python-dotenv` | 1.0.1 | Environment variables management |
 
 ## Feedback
 

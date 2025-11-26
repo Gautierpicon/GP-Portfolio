@@ -4,13 +4,17 @@ from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 import httpx
 import json
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = FastAPI()
 
-OLLAMA_HOST = "http://localhost:11434"
-OLLAMA_MODEL = "gemma3:1b"
-ALLOWED_ORIGINS = ["http://localhost:4321"]
-PORT = 8000
+OLLAMA_HOST = os.getenv("OLLAMA_HOST")
+OLLAMA_MODEL = os.getenv("OLLAMA_MODEL")
+ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS").split(",")
+PORT = int(os.getenv("PORT"))
 
 app.add_middleware(
     CORSMiddleware,
