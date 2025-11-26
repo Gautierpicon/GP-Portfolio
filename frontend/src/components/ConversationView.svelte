@@ -2,6 +2,9 @@
   import { onMount } from "svelte";
   import ChatInput from './ChatInput.svelte';
 
+  import duckImage from '../assets/duck.webp';
+  import thinkingDuckImage from '../assets/thinking-duck.webp';
+
   const BACKEND_URL = import.meta.env.PUBLIC_BACKEND_URL;
 
   let messages = [];
@@ -99,7 +102,7 @@
             {#if msg.role === 'assistant' && idx === messages.length - 1}
               <div class="mt-3 flex">
                 <img 
-                  src={isLoading ? "../src/assets/thinking-duck.webp" : "../src/assets/duck.webp"}
+                  src={isLoading ? thinkingDuckImage.src : duckImage.src}
                   alt="Duck"
                   class="w-15 h-15 rounded-full bg-gray-200"
                 />
@@ -123,7 +126,7 @@
 
           <div class="mt-3 flex">
             <img 
-              src="../src/assets/thinking-duck.webp"
+              src={thinkingDuckImage.src}
               alt="Duck thinking"
               class="w-15 h-15 rounded-full bg-gray-200"
             />
