@@ -1,6 +1,21 @@
 ---
 import "../global.css";
-const { pageTitle } = Astro.props;
+
+interface Props {
+  pageTitle: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const { 
+  pageTitle, 
+  description = "Chat with my AI to discover who I am, my background, and my skills. A privacy-respecting and eco-friendly portfolio.",
+  ogImage = "/og-image.png"
+} = Astro.props;
+
+const siteUrl = Astro.site || "https://gp-portfolio-theta.vercel.app/";
+const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
+const fullOgImageUrl = new URL(ogImage, siteUrl).href;
 ---
 
 <!doctype html>
@@ -10,7 +25,32 @@ const { pageTitle } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+		
+		<!-- SEO -->
 		<title>{pageTitle}</title>
+		<meta name="description" content={description} />
+		
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={currentUrl} />
+		<meta property="og:title" content={pageTitle} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={fullOgImageUrl} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="628" />
+		<meta property="og:image:alt" content="Gautier Picon's Portfolio" />
+		<meta property="og:site_name" content="Gautier Picon's Portfolio" />
+		<meta property="og:locale" content="en_US" />
+		
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content={currentUrl} />
+		<meta name="twitter:title" content={pageTitle} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={fullOgImageUrl} />
+		<meta name="twitter:image:alt" content="Gautier Picon's Portfolio" />
+		<meta name="twitter:creator" content="@vu_zip" />
+		
 	</head>
 
 	<body class="m-0 w-full h-full">
