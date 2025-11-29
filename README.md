@@ -1,8 +1,8 @@
-<a href="gautierpicon.com"><img src="frontend/src/assets/duck.webp" width="70px" align="left"></a>
+<a href="[gautierpicon.com](https://gautierpicon.com)"><img src="frontend/src/assets/duck.webp" width="70px" align="left"></a>
 # Portfolio
 
 My personal protfolio. Have fun !!
-[gautierpicon.com]()
+[gautierpicon.com](https://gautierpicon.com)
 
 ## Additional Documentation
 
