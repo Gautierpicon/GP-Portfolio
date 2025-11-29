@@ -1,4 +1,4 @@
-<a href="https://gautierpicon.com"><img src="frontend/src/assets/duck.webp" width="70px" align="left"></a>
+[![header](.github/readme-header.png)](https://gautierpicon.com)
 # Portfolio
 
 My personal protfolio. Have fun !!
