@@ -1,4 +1,4 @@
-<a href="[gautierpicon.com](https://gautierpicon.com)"><img src="frontend/src/assets/duck.webp" width="70px" align="left"></a>
+<a href="https://gautierpicon.com"><img src="frontend/src/assets/duck.webp" width="70px" align="left"></a>
 # Portfolio
 
 My personal protfolio. Have fun !!
