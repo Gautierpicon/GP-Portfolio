@@ -72,7 +72,7 @@ Example `.env` for **production**:
 ```dotenv
 OLLAMA_HOST=http://localhost:11434
 OLLAMA_MODEL=gemma3:1b
-ALLOWED_ORIGINS=https://your-portfolio.vercel.app
+ALLOWED_ORIGINS=https://gautierpicon.com/
 PORT=8000
 ```
 
@@ -97,7 +97,7 @@ The API will be accessible at `http://localhost:8000`
 To allow multiple origins (e.g., local dev + production), use comma-separated values:
 
 ```dotenv
-ALLOWED_ORIGINS=http://localhost:4321,https://your-portfolio.vercel.app
+ALLOWED_ORIGINS=http://localhost:4321,https://gautierpicon.com/
 ```
 
 ## API Documentation
