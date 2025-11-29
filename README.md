@@ -1,8 +1,8 @@
-<img src="frontend/src/assets/duck.webp" width="70px" align="left">
-
+<a href="gautierpicon.com"><img src="frontend/src/assets/duck.webp" width="70px" align="left"></a>
 # Portfolio
 
 My personal protfolio. Have fun !!
+[gautierpicon.com]()
 
 ## Additional Documentation
 
