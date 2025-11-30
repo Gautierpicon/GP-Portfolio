@@ -15,9 +15,8 @@ const {
   ogImage = "/og-image.png"
 } = Astro.props;
 
-const siteUrl = Astro.site || "https://gautierpicon.com/";
-const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
-const fullOgImageUrl = new URL(ogImage, siteUrl).href;
+const currentUrl = Astro.url.href;
+const fullOgImageUrl = new URL(ogImage, Astro.site).href;
 ---
 
 <!doctype html>
