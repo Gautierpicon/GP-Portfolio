@@ -1,5 +1,7 @@
 ---
 import "../global.css";
+import SpeedInsights from "@vercel/speed-insights/astro";
+import Analytics from "@vercel/analytics/astro";
 
 interface Props {
   pageTitle: string;
@@ -51,11 +53,13 @@ const fullOgImageUrl = new URL(ogImage, siteUrl).href;
 		<meta name="twitter:image:alt" content="Gautier Picon's Portfolio" />
 		<meta name="twitter:creator" content="@vu_zip" />
 		
+		<SpeedInsights />
 	</head>
 
 	<body class="m-0 w-full h-full">
 		<main class="w-full h-full">
 			<slot />
 		</main>
+		<Analytics />
 	</body>
 </html>

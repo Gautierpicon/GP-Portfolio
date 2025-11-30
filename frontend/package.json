@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "gp-portfolio-frontend",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -12,6 +12,8 @@
     "": ".",
     "@astrojs/svelte": "^7.2.2",
     "@tailwindcss/vite": "^4.1.17",
+    "@vercel/analytics": "^1.5.0",
+    "@vercel/speed-insights": "^1.2.0",
     "astro": "5.16.0",
     "svelte": "^5.43.6",
     "tailwindcss": "^4.1.17",
