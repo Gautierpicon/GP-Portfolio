@@ -4,8 +4,6 @@ import { Image } from 'astro:assets';
 import duck404 from '../assets/404.webp';
 
 const pageTitle = "Gautier Picon's Portfolio";
-
-const currentPath = Astro.url.pathname;
 ---
 
 <Layout pageTitle={pageTitle}>
@@ -19,6 +17,18 @@ const currentPath = Astro.url.pathname;
         <div class="text-4xl pt-5">
             <span class="font-bold">404:</span> Not found
         </div>
-        <pre class="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-sm font-mono text-gray-200">Path: {currentPath}</pre>
+        <pre id="path-display" class="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-sm font-mono text-gray-200"></pre>
     </div>
 </Layout>
+
+<script>
+    const originalPath = document.referrer 
+        ? new URL(document.referrer).pathname 
+        : window.location.pathname;
+    
+    const displayPath = originalPath === '/404/' || originalPath === '/404' 
+        ? '(unknown path)' 
+        : originalPath;
+    
+    document.getElementById('path-display')!.textContent = `Path: ${displayPath}`;
+</script>
