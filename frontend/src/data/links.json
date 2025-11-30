@@ -18,12 +18,6 @@
     "description": "DM me on Twitter, i'm active there"
   },
   {
-    "name": "Bluesky",
-    "url": "https://bsky.app/profile/vu-zip.bsky.social",
-    "icon": "bluesky.webp",
-    "description": "Less toxic than his evil brother"
-  },
-  {
     "name": "Signal",
     "url": "https://signal.me/#eu/X7HYz7vkV-PHNHZv-rZQCFvZMgPBI7-WJp3B7V72uiZWDbRqVoFK95mYAhR2TkCK",
     "icon": "signal.webp",
