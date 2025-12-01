@@ -65,8 +65,7 @@
       }
     } catch (e) {
       console.error(e);
-      // messages[assistantIndex].content = `Erreur: ${e.message}. The server appears to be inaccessible`;
-      messages[assistantIndex].content = `I'm broke, I don't have enough money to host the AI at the moment. Please come back later`;
+      messages[assistantIndex].content = `I'm broke, I don't have enough money to host the AI at the moment. Please come back later.\n\nIn the meantime, go to the project's GitHub page to explore the source code or even contribute if you feel like it: <a href="https://github.com/Gautierpicon/GP-Portfolio" target="_blank" rel="noopener noreferrer" class="underline">github.com/Gautierpicon/GP-Portfolio</a>`;
       messages = [...messages];
     } finally {
       isLoading = false;
@@ -96,7 +95,7 @@
                 : 'px-6 py-4 border bg-transparent'}"
             >
               <p class="whitespace-pre-wrap wrap-break-words wrap-anywhere">
-                {msg.content || (msg.role === 'assistant' ? '\u200B' : '')}
+                {@html msg.content || (msg.role === 'assistant' ? '\u200B' : '')}
               </p>
             </div>
 
