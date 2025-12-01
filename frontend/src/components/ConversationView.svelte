@@ -65,7 +65,8 @@
       }
     } catch (e) {
       console.error(e);
-      messages[assistantIndex].content = `Erreur: ${e.message}. The server appears to be inaccessible`;
+      // messages[assistantIndex].content = `Erreur: ${e.message}. The server appears to be inaccessible`;
+      messages[assistantIndex].content = `I'm broke, I don't have enough money to host the AI at the moment. Please come back later`;
       messages = [...messages];
     } finally {
       isLoading = false;
