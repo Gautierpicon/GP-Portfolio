@@ -76,7 +76,11 @@ ALLOWED_ORIGINS=https://gautierpicon.com/
 PORT=8000
 ```
 
-6. Start the server:
+6. Custom model configuration
+
+To set up the custom model, go to the dedicated [README.md](../DuckAI/README.md) file for the model.
+
+7. Start the server:
 ```bash
 uvicorn main:app --reload --port 8000
 ```
@@ -156,7 +160,7 @@ Health check endpoint to verify the API is running and properly configured.
 {
   "status": "ok",
   "ollama_host": "http://localhost:11434",
-  "model": "gemma3:1b"
+  "model": "DuckAI"
 }
 ```
 

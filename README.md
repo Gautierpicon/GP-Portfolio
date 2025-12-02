@@ -8,8 +8,9 @@ My personal protfolio. Have fun !!
 
 For more details on the backend or frontend, see the associated readme.md files.
 
-- [Backend README](https://github.com/Gautierpicon/GP-Portfolio/tree/main/frontend)
-- [Frontend README](https://github.com/Gautierpicon/GP-Portfolio/tree/main/backend)
+- [Backend README](https://github.com/Gautierpicon/Portfolio/tree/main/backend)
+- [Frontend README](https://github.com/Gautierpicon/Portfolio/tree/main/frontend)
+- [Model README](https://github.com/Gautierpicon/GP-Portfolio/tree/main/ollama)
 
 ## Feedback
 
@@ -79,6 +80,10 @@ Portfolio/
 │   │   │   ├── how-it-works.astro
 │   │   │   └── index.astro
 │   │   └── global.css
+│   └── README.md
+│
+├── ollama/
+│   ├── Modelfile
 │   └── README.md
 │
 ├── LICENSE.md
@@ -163,5 +168,23 @@ To do this, create a file named “.env” in the “frontend” file with the f
 ```bash
   PUBLIC_BACKEND_URL=http://localhost:8000
 ```
+
+#### Setup model
+
+### Create the model
+
+Navigate to the `ollama` directory containing the `Modelfile` 
+
+```bash
+cd ollama
+```
+
+And run:
+
+```bash
+ollama create DuckAI -f Modelfile
+```
+
+This command creates a new model called `DuckAI` using the specifications in your Modelfile.
 
 Go to http://localhost:4321/ to use the website.
