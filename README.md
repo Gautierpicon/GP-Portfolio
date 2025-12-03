@@ -1,5 +1,6 @@
 [![header](.github/readme-header.png)](https://gautierpicon.com)
-# Portfolio
+
+# My Portfolio [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE.md)
 
 My personal protfolio. Have fun !!
 [gautierpicon.com](https://gautierpicon.com)
