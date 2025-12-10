@@ -16,7 +16,7 @@ FastAPI backend that serves as a proxy between the frontend and a local Ollama A
 ```
 backend/
 ├── main.py              # Main FastAPI application
-├── requirements.txt     # Python dependencies
+├── pyproject.toml       # Project configuration and dependencies
 ├── .env                 # Environment variables (not tracked by git)
 └── README.md
 ```
@@ -26,6 +26,7 @@ backend/
 ### Prerequisites
 
 - Python 3.9+
+- [uv](https://docs.astral.sh/uv/) package manager
 - [Ollama](https://ollama.ai/) installed and running locally
 - An Ollama model pulled (e.g., `ollama pull gemma3:1b`)
 
@@ -36,24 +37,12 @@ backend/
 cd backend
 ```
 
-2. Create a virtual environment:
+2. Install dependencies
 ```bash
-python3 -m venv venv
+uv sync
 ```
 
-3. Activate the virtual environment:
-```bash
-source venv/bin/activate  # On Linux/Mac
-# or
-venv\Scripts\activate     # On Windows
-```
-
-4. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
-
-5. **Create your `.env` file:**
+3. **Create your `.env` file:**
 ```bash
 cp .env.example .env
 ```
@@ -76,13 +65,13 @@ ALLOWED_ORIGINS=https://gautierpicon.com/
 PORT=8000
 ```
 
-6. Custom model configuration
+4. Custom model configuration
 
 To set up the custom model, go to the dedicated [README.md](../DuckAI/README.md) file for the model.
 
-7. Start the server:
+5. Start the server:
 ```bash
-uvicorn main:app --reload --port 8000
+uv run uvicorn main:app --reload --port 8000
 ```
 
 The API will be accessible at `http://localhost:8000`
