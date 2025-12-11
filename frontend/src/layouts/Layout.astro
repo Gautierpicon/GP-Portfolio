@@ -26,6 +26,11 @@ const fullOgImageUrl = new URL(ogImage, Astro.site).href;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+
+		<!-- Blocks indexing by search engines -->
+		<meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+		<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet" />
+		<meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet" />
 		
 		<!-- SEO -->
 		<title>{pageTitle}</title>
