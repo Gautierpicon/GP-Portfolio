@@ -1,8 +1,9 @@
-User-agent: *
+# TEMPORARY configuration for quick delisting
+User-agent: Googlebot
 Allow: /
 
-User-agent: ia_archiver
-Disallow: /
+User-agent: Bingbot
+Allow: /
 
-User-agent: Wayback Machine
+User-agent: *
 Disallow: /
