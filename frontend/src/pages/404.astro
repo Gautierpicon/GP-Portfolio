@@ -7,28 +7,25 @@ const pageTitle = "Gautier Picon's Portfolio";
 ---
 
 <Layout pageTitle={pageTitle}>
-    <div class="flex flex-col items-center justify-center mx-auto text-center gap-5 min-h-screen">
-        <Image 
-            src={duck404} 
-            alt="Duck404" 
-            class="max-w-[200px] h-auto block mx-auto"
-            loading="eager"
-        />
-        <div class="text-4xl pt-5">
-            <span class="font-bold">404:</span> Not found
-        </div>
-        <pre id="path-display" class="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-sm font-mono text-gray-200"></pre>
+  <div class="flex flex-col items-center justify-center mx-auto text-center gap-5 min-h-screen">
+    <Image src={duck404} alt="Duck404" class="max-w-[200px] h-auto block mx-auto" loading="eager" />
+    <div class="text-4xl pt-5">
+      <span class="font-bold">404:</span> Not found
     </div>
+    <pre
+      id="path-display"
+      class="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-sm font-mono text-gray-200">
+    </pre>
+  </div>
 </Layout>
 
 <script>
-    const originalPath = document.referrer 
-        ? new URL(document.referrer).pathname 
-        : window.location.pathname;
-    
-    const displayPath = originalPath === '/404/' || originalPath === '/404' 
-        ? '(unknown path)' 
-        : originalPath;
-    
-    document.getElementById('path-display')!.textContent = `Path: ${displayPath}`;
+  const originalPath = document.referrer
+    ? new URL(document.referrer).pathname
+    : window.location.pathname;
+
+  const displayPath =
+    originalPath === '/404/' || originalPath === '/404' ? '(unknown path)' : originalPath;
+
+  document.getElementById('path-display')!.textContent = `Path: ${displayPath}`;
 </script>

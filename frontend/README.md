@@ -42,16 +42,19 @@ frontend/
 ### Steps
 
 1. Install dependencies:
+
 ```bash
 bun install
 ```
 
 2. Create a `.env` file at the root of the frontend folder:
+
 ```bash
 PUBLIC_BACKEND_URL=http://localhost:8000
 ```
 
 3. Start the development server:
+
 ```bash
 bun run dev
 ```
@@ -60,30 +63,34 @@ The site will be accessible at `http://localhost:4321/`
 
 ## Available Commands
 
-| Command | Action |
-|----------|--------|
-| `bun install` | Installs dependencies |
+| Command       | Action                        |
+| ------------- | ----------------------------- |
+| `bun install` | Installs dependencies         |
 | `bun run dev` | Starts the development server |
 
 ## Environment Variables
 
-| Variable | Description | Example |
-|----------|-------------|---------|
+| Variable             | Description     | Example                 |
+| -------------------- | --------------- | ----------------------- |
 | `PUBLIC_BACKEND_URL` | Backend API URL | `http://localhost:8000` |
 
 ## Features
 
 ### Interactive AI Chat
+
 The `ChatInput.svelte` component allows you to:
+
 - Send messages to the backend API
 - Display AI responses
 - Auto-resize textarea
 - Support Enter to send (Shift+Enter for new line)
 
 ### Easter Egg
+
 Click on the duck to hear a "quack"! 🦆
 
 ### Pages
+
 - **Home** (`/`): AI chat interface
 - **How it works** (`/how-it-works`): Explanations about eco-friendly operation
 - **404**: Custom error page

@@ -1,7 +1,9 @@
 # Pull Request Template – Portfolio
 
 ## Description
+
 Provide a clear and concise description of the changes introduced in this pull request:
+
 - New section or page
 - Design improvements
 - Bug fixes
@@ -11,17 +13,21 @@ Provide a clear and concise description of the changes introduced in this pull r
 ---
 
 ## Screenshots (if applicable)
+
 Please include before/after screenshots to help me understand the changes.
 
-**Before:**  
+**Before:**
+
 <!-- add image links here -->
 
-**After:**  
+**After:**
+
 <!-- add image links here -->
 
 ---
 
 ## Technical Details (optional)
+
 - Modified technologies:
 - Key files affected:
 - Reasoning behind the changes:
@@ -29,6 +35,7 @@ Please include before/after screenshots to help me understand the changes.
 ---
 
 ## Checklist Before Merging
+
 - [ ] The design remains consistent with the portfolio style
 - [ ] All links work correctly
 - [ ] The layout remains responsive
@@ -39,4 +46,5 @@ Please include before/after screenshots to help me understand the changes.
 ---
 
 ## Additional Notes
+
 Add any extra information or context that might help with the review.

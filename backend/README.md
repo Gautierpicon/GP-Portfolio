@@ -33,16 +33,19 @@ backend/
 ### Steps
 
 1. Navigate to the backend directory:
+
 ```bash
 cd backend
 ```
 
 2. Install dependencies
+
 ```bash
 uv sync
 ```
 
 3. **Create your `.env` file:**
+
 ```bash
 cp .env.example .env
 ```
@@ -50,6 +53,7 @@ cp .env.example .env
 Edit `.env`:
 
 Example `.env` for **local development**:
+
 ```dotenv
 OLLAMA_HOST=http://localhost:11434
 OLLAMA_MODEL=gemma3:1b
@@ -58,6 +62,7 @@ PORT=8000
 ```
 
 Example `.env` for **production**:
+
 ```dotenv
 OLLAMA_HOST=http://localhost:11434
 OLLAMA_MODEL=gemma3:1b
@@ -70,6 +75,7 @@ PORT=8000
 To set up the custom model, go to the dedicated [README.md](../DuckAI/README.md) file for the model.
 
 5. Start the server:
+
 ```bash
 uv run uvicorn main:app --reload --port 8000
 ```
@@ -78,12 +84,12 @@ The API will be accessible at `http://localhost:8000`
 
 ## Environment Variables
 
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `OLLAMA_HOST` | URL of the Ollama instance | `http://localhost:11434` |
-| `OLLAMA_MODEL` | Ollama model to use | `gemma3:1b` |
-| `ALLOWED_ORIGINS` | CORS allowed origins (comma-separated) | `http://localhost:4321` |
-| `PORT` | Server port | `8000` |
+| Variable          | Description                            | Default                  |
+| ----------------- | -------------------------------------- | ------------------------ |
+| `OLLAMA_HOST`     | URL of the Ollama instance             | `http://localhost:11434` |
+| `OLLAMA_MODEL`    | Ollama model to use                    | `gemma3:1b`              |
+| `ALLOWED_ORIGINS` | CORS allowed origins (comma-separated) | `http://localhost:4321`  |
+| `PORT`            | Server port                            | `8000`                   |
 
 ### Multiple Origins
 
@@ -102,6 +108,7 @@ ALLOWED_ORIGINS=http://localhost:4321,https://gautierpicon.com/
 Sends a message to the Ollama AI and returns the response.
 
 **Request Body:**
+
 ```json
 {
   "message": "string"
@@ -109,6 +116,7 @@ Sends a message to the Ollama AI and returns the response.
 ```
 
 **Response:**
+
 ```json
 {
   "response": "string"
@@ -116,6 +124,7 @@ Sends a message to the Ollama AI and returns the response.
 ```
 
 **Example with curl:**
+
 ```bash
 curl -X POST http://localhost:8000/api/chat \
   -H "Content-Type: application/json" \
@@ -123,6 +132,7 @@ curl -X POST http://localhost:8000/api/chat \
 ```
 
 **Example Response:**
+
 ```json
 {
   "response": "I am an AI assistant. How can I help you today?"
@@ -132,6 +142,7 @@ curl -X POST http://localhost:8000/api/chat \
 **Error Responses:**
 
 - `500` - Failed to connect to Ollama or internal server error
+
 ```json
 {
   "detail": "Failed to connect to Ollama: Connection refused"
@@ -145,6 +156,7 @@ curl -X POST http://localhost:8000/api/chat \
 Health check endpoint to verify the API is running and properly configured.
 
 **Response:**
+
 ```json
 {
   "status": "ok",
@@ -154,10 +166,10 @@ Health check endpoint to verify the API is running and properly configured.
 ```
 
 **Example with curl:**
+
 ```bash
 curl http://localhost:8000/health
 ```
-
 
 ## Ollama Integration
 
@@ -174,17 +186,18 @@ client.stream(
     }
 )
 ```
+
 The stream is then sent back to the frontend via StreamingResponse
 
 ## Dependencies
 
-| Package | Version | Purpose |
-|---------|---------|---------|
-| `fastapi` | 0.121.0 | Web framework |
-| `uvicorn[standard]` | 0.32.1 | ASGI server |
-| `httpx` | 0.28.1 | Async HTTP client |
-| `pydantic` | 2.10.3 | Data validation |
-| `python-dotenv` | 1.0.1 | Environment variables management |
+| Package             | Version | Purpose                          |
+| ------------------- | ------- | -------------------------------- |
+| `fastapi`           | 0.121.0 | Web framework                    |
+| `uvicorn[standard]` | 0.32.1  | ASGI server                      |
+| `httpx`             | 0.28.1  | Async HTTP client                |
+| `pydantic`          | 2.10.3  | Data validation                  |
+| `python-dotenv`     | 1.0.1   | Environment variables management |
 
 ## Feedback
 

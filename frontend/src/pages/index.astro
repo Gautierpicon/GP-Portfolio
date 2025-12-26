@@ -9,28 +9,25 @@ const pageTitle = "Gautier Picon's Portfolio";
 
 <Layout pageTitle={pageTitle}>
   <div class="min-h-screen flex flex-col items-center justify-center gap-10">
-
     <div class="w-25 h-25 flex items-center justify-center overflow-hidden" id="duckImage">
-      <Image 
-        src={duck} 
-        alt="Duck illustration" 
-        class="object-contain w-full h-full" 
+      <Image
+        src={duck}
+        alt="Duck illustration"
+        class="object-contain w-full h-full"
         loading="eager"
       />
     </div>
 
     <audio id="quackSound" preload="auto">
-      <source src="/quack.mp3" type="audio/mpeg">
+      <source src="/quack.mp3" type="audio/mpeg" />
     </audio>
 
-    <ChatInput client:load/>
+    <ChatInput client:load />
 
     <div class="-mt-9 text-xs md:text-sm text-gray-500 text-center">
       <p class="inline">
         This AI respects the planet and your privacy:
-        <a href="/how-it-works" class="underline ml-1">
-          find out more
-        </a>
+        <a href="/how-it-works" class="underline ml-1"> find out more </a>
       </p>
     </div>
   </div>

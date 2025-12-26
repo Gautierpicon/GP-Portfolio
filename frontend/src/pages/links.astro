@@ -6,7 +6,9 @@ import linksData from '../data/links.json';
 
 const pageTitle = "GP's Portfolio >> Links";
 
-const iconModules = import.meta.glob<{ default: ImageMetadata }>('../assets/links-icons/*.webp', { eager: true });
+const iconModules = import.meta.glob<{ default: ImageMetadata }>('../assets/links-icons/*.webp', {
+  eager: true
+});
 
 const icons: Record<string, ImageMetadata> = {};
 
@@ -17,7 +19,7 @@ for (const [path, module] of Object.entries(iconModules)) {
   }
 }
 
-const links = linksData.map(link => ({
+const links = linksData.map((link) => ({
   ...link,
   iconSrc: icons[link.icon as string]
 }));
@@ -25,55 +27,61 @@ const links = linksData.map(link => ({
 
 <Layout pageTitle={pageTitle}>
   <div class="min-h-screen flex flex-col items-center justify-center px-5 py-10">
-    
     <div class="flex flex-col items-center mb-8">
       <div class="w-24 h-24 mb-4">
-        <Image 
-          src={duck} 
-          alt="Gautier Picon" 
+        <Image
+          src={duck}
+          alt="Gautier Picon"
           class="w-full h-full object-contain rounded-2xl"
           loading="eager"
         />
       </div>
       <h1 class="text-3xl font-bold mb-2">Gautier Picon</h1>
       <p class="text-gray-600 text-center max-w-md">
-        Passionate about AI but still prefers artists 🙂‍↕️
+        Passionate about AI but still prefers artists
+      </p>
     </div>
 
     <div class="w-full max-w-md space-y-4">
-      {links.map((link) => (
-        <a 
-          href={link.url}
-          target={link.url.startsWith('http') ? '_blank' : '_self'}
-          rel={link.url.startsWith('http') ? 'noopener noreferrer' : undefined}
-          class="block w-full bg-[#f7f7f7] hover:bg-gray-200 rounded-4xl px-6 py-4 shadow-sm transition-all duration-200 hover:shadow-md hover:scale-[1.02]"
-        >
-          <div class="flex items-center gap-4">
-            <div class="w-8 h-8 flex items-center justify-center shrink-0">
-              <Image 
-                src={link.iconSrc} 
-                alt={`${link.name} icon`}
-                class="w-full h-full object-contain"
-                loading="eager"
-              />
+      {
+        links.map((link) => (
+          <a
+            href={link.url}
+            target={link.url.startsWith('http') ? '_blank' : '_self'}
+            rel={link.url.startsWith('http') ? 'noopener noreferrer' : undefined}
+            class="block w-full bg-[#f7f7f7] hover:bg-gray-200 rounded-4xl px-6 py-4 shadow-sm transition-all duration-200 hover:shadow-md hover:scale-[1.02]"
+          >
+            <div class="flex items-center gap-4">
+              <div class="w-8 h-8 flex items-center justify-center shrink-0">
+                <Image
+                  src={link.iconSrc}
+                  alt={`${link.name} icon`}
+                  class="w-full h-full object-contain"
+                  loading="eager"
+                />
+              </div>
+              <div class="flex-1 min-w-0">
+                <h2 class="text-xl font-semibold text-gray-800">{link.name}</h2>
+                <p class="text-sm text-gray-600 truncate">{link.description}</p>
+              </div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                class="w-6 h-6 text-gray-400 shrink-0"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                />
+              </svg>
             </div>
-            <div class="flex-1 min-w-0">
-              <h2 class="text-xl font-semibold text-gray-800">{link.name}</h2>
-              <p class="text-sm text-gray-600 truncate">{link.description}</p>
-            </div>
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              fill="none" 
-              viewBox="0 0 24 24" 
-              stroke-width="2" 
-              stroke="currentColor" 
-              class="w-6 h-6 text-gray-400 shrink-0"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-            </svg>
-          </div>
-        </a>
-      ))}
+          </a>
+        ))
+      }
     </div>
   </div>
 </Layout>

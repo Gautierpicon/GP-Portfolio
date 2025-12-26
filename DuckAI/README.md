@@ -14,7 +14,7 @@ Download and install [Ollama.ai](https://ollama.ai) from the official website ap
 
 ### 2. Create the Duck Model
 
-Navigate to the `ollama` directory containing the `Modelfile` 
+Navigate to the `ollama` directory containing the `Modelfile`
 
 ```bash
 cd ollama

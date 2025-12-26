@@ -1,7 +1,7 @@
 ---
-import "../global.css";
-import SpeedInsights from "@vercel/speed-insights/astro";
-import Analytics from "@vercel/analytics/astro";
+import '../global.css';
+import SpeedInsights from '@vercel/speed-insights/astro';
+import Analytics from '@vercel/analytics/astro';
 
 interface Props {
   pageTitle: string;
@@ -9,10 +9,10 @@ interface Props {
   ogImage?: string;
 }
 
-const { 
-  pageTitle, 
-  description = "Chat with my AI to discover who I am, my background, and my skills. A privacy-respecting and eco-friendly portfolio.",
-  ogImage = "/og-image.png"
+const {
+  pageTitle,
+  description = 'Chat with my AI to discover who I am, my background, and my skills. A privacy-respecting and eco-friendly portfolio.',
+  ogImage = '/og-image.png'
 } = Astro.props;
 
 const currentUrl = Astro.url.href;
@@ -21,56 +21,56 @@ const fullOgImageUrl = new URL(ogImage, Astro.site).href;
 
 <!doctype html>
 <html lang="en" class="m-0 w-full h-full">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
 
-		<!-- Favicons -->
-		<link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
-		<link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96" />
-		<link rel="shortcut icon" href="/favicons/favicon.ico" />
-		<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
-		<meta name="apple-mobile-web-app-title" content="GP's Portfolio" />
-		<link rel="manifest" href="/favicons/site.webmanifest" />
-		<meta name="theme-color" content="#ffffff" />
-		<meta name="generator" content={Astro.generator} />
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96" />
+    <link rel="shortcut icon" href="/favicons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="GP's Portfolio" />
+    <link rel="manifest" href="/favicons/site.webmanifest" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="generator" content={Astro.generator} />
 
-		<!-- Blocks indexing by search engines -->
-		<meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
-		<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet" />
-		<meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet" />
-		
-		<!-- SEO -->
-		<title>{pageTitle}</title>
-		<meta name="description" content={description} />
-		
-		<!-- Open Graph -->
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content={currentUrl} />
-		<meta property="og:title" content={pageTitle} />
-		<meta property="og:description" content={description} />
-		<meta property="og:image" content={fullOgImageUrl} />
-		<meta property="og:image:width" content="1200" />
-		<meta property="og:image:height" content="628" />
-		<meta property="og:image:alt" content="Gautier Picon's Portfolio" />
-		<meta property="og:site_name" content="Gautier Picon's Portfolio" />
-		<meta property="og:locale" content="en_US" />
-		
-		<!-- Twitter -->
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:url" content={currentUrl} />
-		<meta name="twitter:title" content={pageTitle} />
-		<meta name="twitter:description" content={description} />
-		<meta name="twitter:image" content={fullOgImageUrl} />
-		<meta name="twitter:image:alt" content="Gautier Picon's Portfolio" />
-		<meta name="twitter:creator" content="@vu_zip" />
-	</head>
+    <!-- Blocks indexing by search engines -->
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet" />
+    <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet" />
 
-	<body class="m-0 w-full h-full">
-		<main class="w-full h-full">
-			<slot />
-		</main>
-		<SpeedInsights />
-		<Analytics />
-	</body>
+    <!-- SEO -->
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={currentUrl} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={fullOgImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="628" />
+    <meta property="og:image:alt" content="Gautier Picon's Portfolio" />
+    <meta property="og:site_name" content="Gautier Picon's Portfolio" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={currentUrl} />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={fullOgImageUrl} />
+    <meta name="twitter:image:alt" content="Gautier Picon's Portfolio" />
+    <meta name="twitter:creator" content="@vu_zip" />
+  </head>
+
+  <body class="m-0 w-full h-full">
+    <main class="w-full h-full">
+      <slot />
+    </main>
+    <SpeedInsights />
+    <Analytics />
+  </body>
 </html>

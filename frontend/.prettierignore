@@ -1,0 +1,13 @@
+backend
+DuckAI
+node_modules
+.venv
+*.pyc
+__pycache__
+dist
+build
+.next
+coverage
+.env
+.env.*
+*.log
