@@ -1,0 +1,118 @@
+name: Feature Request
+description: Suggest a new feature or improvement
+title: "[FEATURE] "
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for sharing your idea. Your suggestions help me to improve the project.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to Solve
+      description: What problem would this feature solve? Is there a frustration or unmet need?
+      placeholder: I'm always frustrated when...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Describe the feature or improvement you'd like to see
+      placeholder: |
+        I would like...
+        This could work by...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Have you thought of other solutions or features?
+      placeholder: I also considered...
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      description: Which category does this feature belong to?
+      options:
+        - User Interface (UI)
+        - User Experience (UX)
+        - Game Feature
+        - Performance
+        - Accessibility
+        - Configuration/Settings
+        - Multiplayer/Room
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority (in your opinion)
+      description: How important is this feature to you?
+      options:
+        - Critical - I cannot use the app without this
+        - High - This would greatly improve my experience
+        - Medium - This would be nice to have
+        - Low - Just an interesting idea
+    validations:
+      required: true
+
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Use Case
+      description: How would you use this feature? Provide concrete examples
+      placeholder: |
+        Scenario 1: During a party with friends...
+        Scenario 2: For a company event...
+    validations:
+      required: true
+
+  - type: textarea
+    id: mockup
+    attributes:
+      label: Mockups or Visual Examples
+      description: If you have screenshots, mockups, or examples from other apps, add them here
+      placeholder: Drag and drop your images here
+
+  - type: textarea
+    id: implementation
+    attributes:
+      label: Implementation Ideas
+      description: If you have ideas on how to implement this feature, share them (optional)
+      placeholder: This feature could be implemented by...
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Information
+      description: Any other context or useful information
+      placeholder: Additional context...
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      description: Would you be willing to contribute?
+      options:
+        - label: I would be interested in contributing to this feature
+          required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Checklist
+      description: Before submitting, please verify the following
+      options:
+        - label: I have checked that no similar request already exists
+          required: true
+        - label: This feature aligns with the project's goals
+          required: true
