@@ -43,11 +43,11 @@ body:
       options:
         - User Interface (UI)
         - User Experience (UX)
-        - Game Feature
         - Performance
         - Accessibility
         - Configuration/Settings
-        - Multiplayer/Room
+        - Content/Copy
+        - Design/Branding
         - Other
     validations:
       required: true
@@ -71,8 +71,8 @@ body:
       label: Use Case
       description: How would you use this feature? Provide concrete examples
       placeholder: |
-        Scenario 1: During a party with friends...
-        Scenario 2: For a company event...
+        Scenario 1: When I talk to the AI...
+        Scenario 2: When I go to a certain page on the website...
     validations:
       required: true
 
