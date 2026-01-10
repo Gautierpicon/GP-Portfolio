@@ -17,9 +17,6 @@ updates:
       - "dependencies"
       - "frontend"
     versioning-strategy: increase
-    ignore:
-      - dependency-name: "*"
-        update-types: ["version-update:semver-patch"]
 
   # Backend (pip/uv)
   - package-ecosystem: "pip"
