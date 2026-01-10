@@ -1,65 +1,52 @@
 version: 2
+
 updates:
-  # Frontend dependencies
+  # Frontend
   - package-ecosystem: "npm"
     directory: "/frontend"
     schedule:
       interval: "weekly"
       day: "monday"
       time: "09:00"
-    open-pull-requests-limit: 10
-    reviewers:
-      - "Gautierpicon"
-    assignees:
-      - "Gautierpicon"
+      timezone: "Europe/Paris"
+    open-pull-requests-limit: 2
     commit-message:
       prefix: "chore(frontend)"
       include: "scope"
     labels:
       - "dependencies"
       - "frontend"
-      - "bun"
     versioning-strategy: increase
     ignore:
       - dependency-name: "*"
-        update-types: ["version-update:semver-patch"]
+        update-types:
+          - "version-update:semver-patch"
 
-  # Backend dependencies
+  # Backend
   - package-ecosystem: "pip"
     directory: "/backend"
     schedule:
       interval: "weekly"
       day: "monday"
       time: "09:00"
-    open-pull-requests-limit: 10
-    reviewers:
-      - "Gautierpicon"
-    assignees:
-      - "Gautierpicon"
+      timezone: "Europe/Paris"
+    open-pull-requests-limit: 2
     commit-message:
       prefix: "chore(backend)"
       include: "scope"
     labels:
       - "dependencies"
       - "backend"
-      - "uv"
     versioning-strategy: increase
 
   # GitHub Actions
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "09:00"
-    open-pull-requests-limit: 5
-    reviewers:
-      - "Gautierpicon"
-    assignees:
-      - "Gautierpicon"
+      interval: "monthly"
+    open-pull-requests-limit: 1
     commit-message:
       prefix: "chore(ci)"
-      include: "scope"
     labels:
       - "dependencies"
       - "ci"
