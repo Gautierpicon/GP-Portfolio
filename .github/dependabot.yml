@@ -1,7 +1,7 @@
 version: 2
 
 updates:
-  # Frontend
+  # Frontend (npm/Bun)
   - package-ecosystem: "npm"
     directory: "/frontend"
     schedule:
@@ -19,10 +19,9 @@ updates:
     versioning-strategy: increase
     ignore:
       - dependency-name: "*"
-        update-types:
-          - "version-update:semver-patch"
+        update-types: ["version-update:semver-patch"]
 
-  # Backend
+  # Backend (pip/uv)
   - package-ecosystem: "pip"
     directory: "/backend"
     schedule:
