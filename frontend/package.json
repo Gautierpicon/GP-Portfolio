@@ -16,7 +16,7 @@
     "@vercel/speed-insights": "^1.2.0",
     "astro": "5.16.6",
     "svelte": "^5.43.6",
-    "tailwindcss": "^4.1.17",
+    "tailwindcss": "^4.1.18",
     "typescript": "^5.9.3"
   },
   "devDependencies": {
