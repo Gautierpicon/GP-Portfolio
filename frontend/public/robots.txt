@@ -1,2 +1,32 @@
+# Allow social media crawlers
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: Discordbot
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+User-agent: Slackbot
+Allow: /
+
+User-agent: redditbot
+Allow: /
+
+# Block everything else
 User-agent: *
 Disallow: /
+
+# Shared assets
+Allow: /og-image.png
+Allow: /favicons/

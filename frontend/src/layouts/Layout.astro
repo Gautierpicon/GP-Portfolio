@@ -36,9 +36,11 @@ const fullOgImageUrl = new URL(ogImage, Astro.site).href;
     <meta name="generator" content={Astro.generator} />
 
     <!-- Blocks indexing by search engines -->
-    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
-    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet" />
-    <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="googlebot" content="noindex, nofollow" />
+    <meta name="bingbot" content="noindex, nofollow" />
+    <meta name="duckduckbot" content="noindex, nofollow" />
+    <meta name="slurp" content="noindex, nofollow" />
 
     <!-- SEO -->
     <title>{pageTitle}</title>

@@ -5,7 +5,25 @@
       "headers": [
         {
           "key": "X-Robots-Tag",
-          "value": "noindex, nofollow, noarchive, nosnippet"
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/og-image.png",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/favicons/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000, immutable"
         }
       ]
     }
