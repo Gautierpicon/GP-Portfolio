@@ -49,7 +49,7 @@ const links = linksData.map((link) => ({
             href={link.url}
             target={link.url.startsWith('http') ? '_blank' : '_self'}
             rel={link.url.startsWith('http') ? 'noopener noreferrer' : undefined}
-            class="block w-full bg-[#f7f7f7] hover:bg-gray-200 rounded-4xl px-6 py-4 shadow-sm transition-all duration-200 hover:shadow-md hover:scale-[1.02]"
+            class="link-item block w-full bg-[#f7f7f7] hover:bg-gray-200 rounded-4xl px-6 py-4 shadow-sm transition-all duration-200 hover:shadow-md hover:scale-[1.02]"
           >
             <div class="flex items-center gap-4">
               <div class="w-8 h-8 flex items-center justify-center shrink-0">
@@ -70,7 +70,7 @@ const links = linksData.map((link) => ({
                 viewBox="0 0 24 24"
                 stroke-width="2"
                 stroke="currentColor"
-                class="w-6 h-6 text-gray-400 shrink-0"
+                class="arrow-icon w-6 h-6 text-gray-400 shrink-0"
               >
                 <path
                   stroke-linecap="round"
@@ -85,3 +85,33 @@ const links = linksData.map((link) => ({
     </div>
   </div>
 </Layout>
+
+<script>
+  import { gsap } from "gsap";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const links = document.querySelectorAll(".link-item");
+
+    links.forEach((link) => {
+      const arrow = link.querySelector(".arrow-icon");
+
+      gsap.set(arrow, { rotate: 0 });
+
+      link.addEventListener("mouseenter", () => {
+        gsap.to(arrow, {
+          rotate: 90,
+          duration: 0.25,
+          ease: "power2.out"
+        });
+      });
+
+      link.addEventListener("mouseleave", () => {
+        gsap.to(arrow, {
+          rotate: 0,
+          duration: 0.25,
+          ease: "power2.out"
+        });
+      });
+    });
+  });
+</script>
