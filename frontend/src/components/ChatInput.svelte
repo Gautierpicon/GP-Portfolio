@@ -1,19 +1,44 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
+  import prompts from '../data/prompts.json';
 
   export let onSend = null;
   export let disabled = false;
+  export let dynamicPlaceholder = false;
+  export let placeholder = "Send a message";
 
   let message = "";
   let textarea;
+  let currentPlaceholder = placeholder;
+  let currentPromptIndex = 0;
+  let placeholderInterval;
 
   const autoResize = () => {
     textarea.style.height = "auto";
     textarea.style.height = textarea.scrollHeight + "px";
   };
 
+  const cyclePlaceholder = () => {
+    let newIndex;
+    do {
+      newIndex = Math.floor(Math.random() * prompts.length);
+    } while (newIndex === currentPromptIndex && prompts.length > 1);
+    currentPromptIndex = newIndex;
+    currentPlaceholder = prompts[currentPromptIndex];
+  };
+
   onMount(() => {
     autoResize();
+    if (dynamicPlaceholder && prompts.length > 0) {
+      currentPlaceholder = prompts[0];
+      placeholderInterval = setInterval(cyclePlaceholder, 4000);
+    }
+  });
+
+  onDestroy(() => {
+    if (placeholderInterval) {
+      clearInterval(placeholderInterval);
+    }
   });
 
   const sendMessage = () => {
@@ -42,7 +67,7 @@
     <textarea
         bind:this={textarea}
         bind:value={message}
-        placeholder="Send a message"
+        placeholder={currentPlaceholder}
         rows="1"
         class="w-full min-h-12 bg-transparent resize-none outline-none border-none text-dark placeholder-gray-400 overflow-y-auto px-6 pt-6"
         style="max-height: 12rem;"
