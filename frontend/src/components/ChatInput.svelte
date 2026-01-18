@@ -1,6 +1,10 @@
 <script>
   import { onMount, onDestroy } from "svelte";
+  import gsap from "gsap";
+  import { TextPlugin } from "gsap/TextPlugin";
   import prompts from '../data/prompts.json';
+
+  gsap.registerPlugin(TextPlugin);
 
   export let onSend = null;
   export let disabled = false;
@@ -11,35 +15,82 @@
   let textarea;
   let currentPlaceholder = placeholder;
   let currentPromptIndex = 0;
-  let placeholderInterval;
+  let typewriterTimeline;
 
   const autoResize = () => {
     textarea.style.height = "auto";
     textarea.style.height = textarea.scrollHeight + "px";
   };
 
-  const cyclePlaceholder = () => {
-    let newIndex;
-    do {
-      newIndex = Math.floor(Math.random() * prompts.length);
-    } while (newIndex === currentPromptIndex && prompts.length > 1);
-    currentPromptIndex = newIndex;
-    currentPlaceholder = prompts[currentPromptIndex];
+  const createTypewriterAnimation = () => {
+    if (!dynamicPlaceholder || prompts.length === 0) return;
+
+    typewriterTimeline = gsap.timeline({ repeat: -1 });
+
+    prompts.forEach((prompt) => {
+      let obj = { progress: 0 };
+
+      typewriterTimeline
+        .add(() => {
+          obj.progress = 0;
+        })
+        .to(obj, {
+          duration: prompt.length * 0.07,
+          progress: 1,
+          ease: "none",
+          onUpdate: function () {
+            const charIndex = Math.floor(this.targets()[0].progress * prompt.length);
+            currentPlaceholder = prompt.substring(0, charIndex + 1);
+          },
+          onComplete: function () {
+            currentPlaceholder = prompt;
+          },
+        })
+        .to({}, { duration: 3 })
+        .add(() => {
+          obj.progress = 0;
+        })
+        .to(obj, {
+          duration: prompt.length * 0.06,
+          progress: 1,
+          ease: "none",
+          onUpdate: function () {
+            const charIndex = Math.floor(this.targets()[0].progress * prompt.length);
+            currentPlaceholder = prompt.substring(0, prompt.length - charIndex);
+          },
+          onComplete: function () {
+            currentPlaceholder = "";
+          },
+        })
+        .to({}, { duration: 0.5 });
+    });
+
+    currentPlaceholder = "";
   };
 
   onMount(() => {
     autoResize();
-    if (dynamicPlaceholder && prompts.length > 0) {
-      currentPlaceholder = prompts[0];
-      placeholderInterval = setInterval(cyclePlaceholder, 4000);
-    }
+    createTypewriterAnimation();
   });
 
   onDestroy(() => {
-    if (placeholderInterval) {
-      clearInterval(placeholderInterval);
+    if (typewriterTimeline) {
+      typewriterTimeline.kill();
     }
   });
+
+  const handleFocus = () => {
+    if (typewriterTimeline) {
+      typewriterTimeline.pause();
+      currentPlaceholder = "";
+    }
+  };
+
+  const handleBlur = () => {
+    if (typewriterTimeline && !message.trim()) {
+      typewriterTimeline.restart();
+    }
+  };
 
   const sendMessage = () => {
     const trimmed = message.trim();
@@ -73,6 +124,8 @@
         style="max-height: 12rem;"
         on:input={autoResize}
         on:keydown={handleKeydown}
+        on:focus={handleFocus}
+        on:blur={handleBlur}
         disabled={disabled}
     ></textarea>
 
