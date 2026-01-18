@@ -61,7 +61,7 @@ Portfolio/
 ├── backend/
 │   ├── main.py
 │   ├── README.md
-│   └── requirements.txt
+│   └── pyproject.toml
 │
 ├── frontend/
 │   ├── public/
@@ -69,9 +69,12 @@ Portfolio/
 │   │   └── quack.mp3
 │   ├── src/
 │   │   ├── assets/
+│   │   │   └── ...
 │   │   ├── components/
 │   │   │   ├── ChatInput.svelte
 │   │   │   └── ConversationView.svelte
+│   │   ├── data/
+│   │   │   └── ...
 │   │   ├── layouts/
 │   │   │   └── Layout.astro
 │   │   ├── pages/
