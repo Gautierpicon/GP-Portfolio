@@ -14,7 +14,6 @@
   let message = "";
   let textarea;
   let currentPlaceholder = placeholder;
-  let currentPromptIndex = 0;
   let typewriterTimeline;
 
   const autoResize = () => {
@@ -22,12 +21,24 @@
     textarea.style.height = textarea.scrollHeight + "px";
   };
 
+  const getRandomPrompt = (prevIndex) => {
+    let newIndex;
+    do {
+      newIndex = Math.floor(Math.random() * prompts.length);
+    } while (newIndex === prevIndex && prompts.length > 1);
+    return { prompt: prompts[newIndex], index: newIndex };
+  };
+
   const createTypewriterAnimation = () => {
     if (!dynamicPlaceholder || prompts.length === 0) return;
 
     typewriterTimeline = gsap.timeline({ repeat: -1 });
 
-    prompts.forEach((prompt) => {
+    let prevPromptIndex = -1;
+
+    const addPromptAnimation = () => {
+      const { prompt, index } = getRandomPrompt(prevPromptIndex);
+      prevPromptIndex = index;
       let obj = { progress: 0 };
 
       typewriterTimeline
@@ -63,7 +74,11 @@
           },
         })
         .to({}, { duration: 0.5 });
-    });
+    };
+
+    addPromptAnimation();
+    addPromptAnimation();
+    addPromptAnimation();
 
     currentPlaceholder = "";
   };
