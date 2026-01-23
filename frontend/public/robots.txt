@@ -1,4 +1,4 @@
-# Allow social media crawlers
+# Allow social media crawlers to access the opengraph image
 User-agent: facebookexternalhit
 Allow: /
 
