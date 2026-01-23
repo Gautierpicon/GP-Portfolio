@@ -1,5 +1,6 @@
 <script>
   import { onMount } from "svelte";
+  import gsap from 'gsap';
   import ChatInput from './ChatInput.svelte';
 
   import duckImage from '../assets/duck.webp';
@@ -10,6 +11,7 @@
   let messages = [];
   let isLoading = false;
   let messagesContainer;
+  let dot1, dot2, dot3;
 
   const scrollToBottom = () => {
     if (messagesContainer) {
@@ -21,12 +23,20 @@
 
   onMount(() => {
     const initialMessage = sessionStorage.getItem('initialMessage');
-    
+
     if (initialMessage) {
       sessionStorage.removeItem('initialMessage');
       handleSendMessage(initialMessage);
     }
   });
+
+  $: if (isLoading && dot1) {
+    gsap.to(dot1, { y: -5, duration: 0.5, ease: "power1.inOut", repeat: -1, yoyo: true });
+    gsap.to(dot2, { y: -5, duration: 0.5, ease: "power1.inOut", repeat: -1, yoyo: true, delay: 0.2 });
+    gsap.to(dot3, { y: -5, duration: 0.5, ease: "power1.inOut", repeat: -1, yoyo: true, delay: 0.4 });
+  } else if (!isLoading) {
+    gsap.killTweensOf([dot1, dot2, dot3]);
+  }
 
   const handleSendMessage = async (messageText) => {
     messages = [...messages, { role: "user", content: messageText }];
@@ -118,9 +128,9 @@
         <div class="flex flex-col items-start pl-6">
           <div class="max-w-2xl rounded-3xl px-6 py-4 border bg-transparent">
             <div class="flex space-x-2">
-              <div class="w-2 h-2 bg-gray-500 rounded-full animate-bounce"></div>
-              <div class="w-2 h-2 bg-gray-500 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
-              <div class="w-2 h-2 bg-gray-500 rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
+              <div bind:this={dot1} class="w-2 h-2 bg-gray-500 rounded-full"></div>
+              <div bind:this={dot2} class="w-2 h-2 bg-gray-500 rounded-full"></div>
+              <div bind:this={dot3} class="w-2 h-2 bg-gray-500 rounded-full"></div>
             </div>
           </div>
 
